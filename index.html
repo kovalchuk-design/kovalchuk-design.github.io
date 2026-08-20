@@ -6,9 +6,17 @@
 <title>Serhii Kovalchuk — Product Designer for regulated, data-heavy software</title>
 <meta name="description" content="Senior product designer with 10+ years across fintech, medical, and enterprise software. KYC and compliance flows, clinical workflows, data-heavy dashboards, design systems.">
 <meta name="theme-color" content="#E9EAE5">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kovalchuk-design.github.io/">
 <meta property="og:title" content="Serhii Kovalchuk — Product Designer">
 <meta property="og:description" content="Product designer for regulated, data-heavy software. 10+ years across fintech, medical, and enterprise.">
-<meta property="og:type" content="website">
+<meta property="og:image" content="https://kovalchuk-design.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Serhii Kovalchuk — Senior Product Designer, 10+ years.">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%231B3FD8'/%3E%3Crect x='22' y='33' width='56' height='13' rx='2' fill='%23E9EAE5' opacity='.5'/%3E%3Crect x='22' y='54' width='28' height='13' rx='2' fill='%23E9EAE5'/%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -157,6 +165,14 @@ a { color: inherit; }
   background: var(--signal);
   flex: none;
 }
+.hero__sep{
+  display: none;
+  width: 1px;
+  height: 1.05em;
+  background: var(--rule);
+  flex: none;
+}
+@media (min-width: 720px){ .hero__sep{ display: block; } }
 .hero__name{
   font-family: var(--f-display);
   font-variation-settings: "wdth" 116, "wght" 640;
@@ -349,15 +365,37 @@ a { color: inherit; }
   padding-block: clamp(1.75rem, 3.5vw, 2.75rem);
   border-top: 1px solid var(--rule);
   text-decoration: none;
-  transition: background .25s var(--ease), padding-inline .25s var(--ease);
 }
 .case:last-child{ border-bottom: 1px solid var(--rule); }
 @media (min-width: 900px){
   .case{ grid-template-columns: 16rem 1fr 9rem; align-items: start; }
-  .case:hover{
-    background: var(--paper-lift);
-    padding-inline: 1.25rem;
-  }
+}
+
+/* case media ------------------------------------------------ */
+.case__media{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
+  gap: .75rem;
+  margin-top: clamp(1.25rem, 3vw, 1.75rem);
+}
+.shot{
+  margin: 0;
+  background: var(--paper-lift);
+  border: 1px solid var(--rule);
+  padding: .5rem;
+  overflow: hidden;
+}
+.shot img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.shot figcaption{
+  font-family: var(--f-data);
+  font-size: .7rem;
+  letter-spacing: .04em;
+  color: var(--ink-soft);
+  padding: .6rem .25rem .1rem;
 }
 .case__org{
   font-family: var(--f-display);
@@ -605,6 +643,7 @@ a { color: inherit; }
       <div class="hero__meta">
         <span class="hero__dot" aria-hidden="true"></span>
         <p class="eyebrow">Rivne, Ukraine — remote with US &amp; EU teams</p>
+        <span class="hero__sep" aria-hidden="true"></span>
         <p class="eyebrow">Senior Product Designer · 10+ years</p>
       </div>
 
@@ -711,6 +750,13 @@ a { color: inherit; }
               <li>Spec &amp; edge cases</li>
               <li>Design system audit</li>
             </ul>
+
+            <div class="case__media">
+              <figure class="shot">
+                <img src="rx-logix-01.png" alt="RxLogix clinical workflow interface" loading="lazy" decoding="async">
+              </figure>
+              <!-- more shots: duplicate the <figure> above, e.g. rx-logix-02.png -->
+            </div>
           </div>
           <span class="case__years">2025 — Present</span>
         </article>
@@ -745,6 +791,13 @@ a { color: inherit; }
               <li>Adaptive logic</li>
               <li>Multi-team</li>
             </ul>
+
+            <div class="case__media">
+              <figure class="shot">
+                <img src="carnival-01.png" alt="Carnival multi-device passenger and crew interface" loading="lazy" decoding="async">
+              </figure>
+              <!-- more shots: duplicate the <figure> above, e.g. carnival-02.png -->
+            </div>
           </div>
           <span class="case__years">2022 — 2023</span>
         </article>
