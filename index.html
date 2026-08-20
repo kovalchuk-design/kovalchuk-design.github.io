@@ -342,6 +342,28 @@ a { color: inherit; }
 .bar--after .bar__fill{ background: var(--signal); }
 .bar--after .bar__fill{ transition-delay: .18s; }
 
+.meter__grid{
+  display: grid;
+  gap: clamp(1.75rem, 4vw, 3rem);
+}
+@media (min-width: 960px){
+  .meter__grid{
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    align-items: start;
+  }
+}
+.meter__shot{
+  margin: 0;
+  background: var(--paper-lift);
+  border: 1px solid var(--rule);
+  padding: .5rem;
+}
+.meter__shot img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .meter__note{
   font-size: .95rem;
   color: var(--ink-soft);
@@ -364,38 +386,10 @@ a { color: inherit; }
   gap: .75rem 2.5rem;
   padding-block: clamp(1.75rem, 3.5vw, 2.75rem);
   border-top: 1px solid var(--rule);
-  text-decoration: none;
 }
 .case:last-child{ border-bottom: 1px solid var(--rule); }
 @media (min-width: 900px){
   .case{ grid-template-columns: 16rem 1fr 9rem; align-items: start; }
-}
-
-/* case media ------------------------------------------------ */
-.case__media{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
-  gap: .75rem;
-  margin-top: clamp(1.25rem, 3vw, 1.75rem);
-}
-.shot{
-  margin: 0;
-  background: var(--paper-lift);
-  border: 1px solid var(--rule);
-  padding: .5rem;
-  overflow: hidden;
-}
-.shot img{
-  display: block;
-  width: 100%;
-  height: auto;
-}
-.shot figcaption{
-  font-family: var(--f-data);
-  font-size: .7rem;
-  letter-spacing: .04em;
-  color: var(--ink-soft);
-  padding: .6rem .25rem .1rem;
 }
 .case__org{
   font-family: var(--f-display);
@@ -684,20 +678,28 @@ a { color: inherit; }
           <h2 class="meter__title">Passenger boarding, cut in half</h2>
           <span class="meter__where">Carnival Corporation · 2022–2023</span>
         </div>
-        <span class="meter__delta">−50%</span>
-        <div class="bars">
-          <div class="bar">
-            <span class="bar__label">Before</span>
-            <div class="bar__track"><div class="bar__fill" data-width="100"></div></div>
-            <span class="bar__value">2 min 40 s</span>
+        <div class="meter__grid">
+          <div class="meter__data">
+            <span class="meter__delta">−50%</span>
+            <div class="bars">
+              <div class="bar">
+                <span class="bar__label">Before</span>
+                <div class="bar__track"><div class="bar__fill" data-width="100"></div></div>
+                <span class="bar__value">2 min 40 s</span>
+              </div>
+              <div class="bar bar--after">
+                <span class="bar__label">After</span>
+                <div class="bar__track"><div class="bar__fill" data-width="50"></div></div>
+                <span class="bar__value">1 min 20 s</span>
+              </div>
+            </div>
+            <p class="meter__note">Redesigned boarding touchpoints across 65-inch displays, crew tablets, and passenger mobile — each with its own interaction model rather than one layout rescaled.</p>
           </div>
-          <div class="bar bar--after">
-            <span class="bar__label">After</span>
-            <div class="bar__track"><div class="bar__fill" data-width="50"></div></div>
-            <span class="bar__value">1 min 20 s</span>
-          </div>
+
+          <figure class="meter__shot">
+            <img src="carnival-01.png" alt="Carnival boarding interface across display sizes" loading="lazy" decoding="async">
+          </figure>
         </div>
-        <p class="meter__note">Redesigned boarding touchpoints across 65-inch displays, crew tablets, and passenger mobile — each with its own interaction model rather than one layout rescaled.</p>
       </article>
 
       <!-- METER 2 -->
@@ -706,20 +708,28 @@ a { color: inherit; }
           <h2 class="meter__title">A clinical workflow, from twelve steps to five</h2>
           <span class="meter__where">RxLogix · 2025–present</span>
         </div>
-        <span class="meter__delta">−58%</span>
-        <div class="bars">
-          <div class="bar">
-            <span class="bar__label">Before</span>
-            <div class="bar__track"><div class="bar__fill" data-width="100"></div></div>
-            <span class="bar__value">12 steps</span>
+        <div class="meter__grid">
+          <div class="meter__data">
+            <span class="meter__delta">−58%</span>
+            <div class="bars">
+              <div class="bar">
+                <span class="bar__label">Before</span>
+                <div class="bar__track"><div class="bar__fill" data-width="100"></div></div>
+                <span class="bar__value">12 steps</span>
+              </div>
+              <div class="bar bar--after">
+                <span class="bar__label">After</span>
+                <div class="bar__track"><div class="bar__fill" data-width="42"></div></div>
+                <span class="bar__value">5 steps</span>
+              </div>
+            </div>
+            <p class="meter__note">Restructured the interaction logic to cut cognitive load for medical staff while keeping every compliance requirement intact.</p>
           </div>
-          <div class="bar bar--after">
-            <span class="bar__label">After</span>
-            <div class="bar__track"><div class="bar__fill" data-width="42"></div></div>
-            <span class="bar__value">5 steps</span>
-          </div>
+
+          <figure class="meter__shot">
+            <img src="rx-logix-01.png" alt="RxLogix clinical workflow interface" loading="lazy" decoding="async">
+          </figure>
         </div>
-        <p class="meter__note">Restructured the interaction logic to cut cognitive load for medical staff while keeping every compliance requirement intact.</p>
       </article>
 
       <!--
@@ -750,13 +760,6 @@ a { color: inherit; }
               <li>Spec &amp; edge cases</li>
               <li>Design system audit</li>
             </ul>
-
-            <div class="case__media">
-              <figure class="shot">
-                <img src="rx-logix-01.png" alt="RxLogix clinical workflow interface" loading="lazy" decoding="async">
-              </figure>
-              <!-- more shots: duplicate the <figure> above, e.g. rx-logix-02.png -->
-            </div>
           </div>
           <span class="case__years">2025 — Present</span>
         </article>
@@ -791,13 +794,6 @@ a { color: inherit; }
               <li>Adaptive logic</li>
               <li>Multi-team</li>
             </ul>
-
-            <div class="case__media">
-              <figure class="shot">
-                <img src="carnival-01.png" alt="Carnival multi-device passenger and crew interface" loading="lazy" decoding="async">
-              </figure>
-              <!-- more shots: duplicate the <figure> above, e.g. carnival-02.png -->
-            </div>
           </div>
           <span class="case__years">2022 — 2023</span>
         </article>
