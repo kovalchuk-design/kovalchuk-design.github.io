@@ -309,15 +309,21 @@ a { color: inherit; }
 
 .bars{
   display: grid;
-  gap: .55rem;
+  gap: 1.1rem;
   max-width: 62rem;
 }
 .bar{
   display: grid;
-  grid-template-columns: 4.25rem 1fr 6.5rem;
-  align-items: center;
-  gap: .75rem;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "label value"
+    "track track";
+  align-items: baseline;
+  gap: .4rem .75rem;
 }
+.bar__label{ grid-area: label; }
+.bar__value{ grid-area: value; }
+.bar__track{ grid-area: track; }
 .bar__label,
 .bar__value{
   font-family: var(--f-data);
@@ -346,9 +352,9 @@ a { color: inherit; }
   display: grid;
   gap: clamp(1.75rem, 4vw, 3rem);
 }
-@media (min-width: 960px){
+@media (min-width: 1140px){
   .meter__grid{
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    grid-template-columns: minmax(0, 25fr) minmax(0, 75fr);
     align-items: start;
   }
 }
@@ -362,7 +368,7 @@ a { color: inherit; }
   display: block;
   width: 100%;
   height: auto;
-  max-height: 32rem;
+  max-height: 40rem;
   object-fit: contain;
   object-position: center top;
 }
