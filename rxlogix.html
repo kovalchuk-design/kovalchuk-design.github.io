@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RxLogix — Twelve steps to five · Serhii Kovalchuk</title>
+<meta name="description" content="Simplifying a pharmacovigilance workflow for medical staff who don&rsquo;t have time to think about the interface.">
+<meta name="theme-color" content="#0D0F12">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%231B3FD8'/%3E%3Crect x='22' y='33' width='56' height='13' rx='2' fill='%23E9EAE5' opacity='.5'/%3E%3Crect x='22' y='54' width='28' height='13' rx='2' fill='%23E9EAE5'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Sans:wght@400..600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/case.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a class="nav__mark" href="../index.html">SK <span>Serhii Kovalchuk</span></a>
+    <div class="nav__links">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+  <div class="nav__progress" id="progress"></div>
+</nav>
+
+<main id="main">
+  <header class="case-hero">
+    <div class="wrap">
+      <a class="case-hero__back" href="cases.html"><i aria-hidden="true">&larr;</i>All cases</a>
+      <p class="mono">RxLogix Corporation &middot; Jan 2025 &ndash; Present &middot; US, remote</p>
+      <h1 class="case-hero__title">Twelve steps to five &mdash; and the insight that made it possible</h1>
+      <p class="case-hero__dek">Simplifying a pharmacovigilance workflow for medical staff who don&rsquo;t have time to think about the interface.</p>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <img class="shot-lead" src="shots/rx-team.png" alt="Clinical specialist reviewing lab paperwork at a desk" loading="lazy" decoding="async">
+  </div>
+
+  <section class="sec">
+    <div class="sec__bar"><div class="sec__bar-in"><span>01 · The problem</span><span>RxLogix · 2025 — present</span></div></div>
+    <div class="wrap sec__body">
+      <div class="results reveal">
+        <p class="mono">Results</p>
+        <div class="results__grid">
+          <div class="result result--lead">
+            <p class="result__head">12 steps &rarr; 5 steps</p>
+            <p>58% reduction in workflow complexity.</p>
+          </div>
+          <div class="result">
+            <p class="result__head">~80% of data entry automated</p>
+            <p>AI-assisted recognition reads incoming result images and auto-fills report fields, with a confidence score flagging only sub-threshold entries for human verification &mdash; turning an hours-long transcription process into a fast verification step.<small>Estimated from the observed recognition-confidence distribution.</small></p>
+          </div>
+          <div class="result">
+            <p class="result__head">Compliance maintained</p>
+            <p>All regulatory requirements preserved throughout the redesign.</p>
+          </div>
+          <div class="result">
+            <p class="result__head">Cognitive load significantly reduced</p>
+            <p>Fewer errors and incomplete submissions reported by clinical staff.</p>
+          </div>
+          <div class="result">
+            <p class="result__head">From universal to personalised reporting</p>
+            <p>Specialists gained data tables scoped to their own clinical indicators, a one-tap switch between global and personalised views, and reusable report templates &mdash; replacing manual, multi-report assembly.</p>
+          </div>
+          <div class="result">
+            <p class="result__head">Improved sprint predictability</p>
+            <p>Structured handoff documentation reduced engineering clarification cycles.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <blockquote class="testimonial__quote">"I would highly recommend Sergii for strong expertise in UI/UX design and his ability to translate complex requirements into intuitive, user-friendly, and visually engaging mockups. Sergii has good understanding of user experience principles and is particularly effective at structuring workflows, simplifying complex processes, and creating designs that are both functional and aesthetically polished."</blockquote>
+        <div class="testimonial__cite">
+          <span class="testimonial__name">Dr Asif Abbas</span>
+          <span class="testimonial__role">Director, Product Owner — Safety Platform, Pharmacovigilance</span>
+          <a class="testimonial__link" href="https://www.linkedin.com/in/sergii-kovalchuck-014049168/" target="_blank" rel="noopener">View on LinkedIn <i aria-hidden="true">&rarr;</i></a>
+        </div>
+      </div>
+
+      <div class="row reveal">
+        <p class="row__label">Situation</p>
+        <div class="row__body row__body--split">
+          <p>RxLogix builds pharmacovigilance software &mdash; the systems that track adverse drug event reports for clinical and regulatory teams. The platform had grown around technical requirements rather than how staff actually worked: a 12-step process causing high cognitive load, frequent errors, and mounting frustration flagged through support feedback.</p>
+          <p>You can&rsquo;t simplify a compliance workflow by deleting steps regulators require. The real question wasn&rsquo;t &ldquo;make this shorter&rdquo; &mdash; it was which of the 12 steps were doing actual regulatory work, and which had just accumulated.</p>
+        </div>
+      </div>
+
+      <div class="row reveal">
+        <p class="row__label">Deciding insight</p>
+        <div class="row__body">
+          <p class="lede">Mapping actual task flow against the designed flow, and cross-checking every step against PRD and compliance documentation with QA, surfaced the deciding fact: <strong>7 of the 12 steps existed because of legacy system logic, not clinical or regulatory need &mdash; compliance mandated only 5 decision points.</strong></p>
+          <p>That reframed the whole project &mdash; not &ldquo;redesign a workflow,&rdquo; but remove exactly the seven steps that were never required.</p>
+        </div>
+      </div>
+
+      <div class="row reveal">
+        <p class="row__label">Research</p>
+        <div class="row__body">
+          <p>Research also surfaced a human pattern behind the numbers: staff who&rsquo;d grown with the system&rsquo;s complexity had adapted to the friction, while newer hires &mdash; used to modern software &mdash; felt it far more acutely. That gap showed up in both productivity and reported satisfaction, and confirmed the fix needed to be structural, not just a training issue.</p>
+        </div>
+      </div>
+
+      <div class="shot-grid shot-grid--pair reveal">
+        <figure class="shot">
+          <img src="shots/rx-dashboard.png" alt="Safety operations dashboard with review counts, case volume trend and completion rate" loading="lazy" decoding="async">
+          <figcaption>02 &mdash; Role-scoped dashboard</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="shots/rx-legacy.png" alt="Legacy pharmacovigilance interface with dense stacked panels and tables" loading="lazy" decoding="async">
+          <figcaption>03 &mdash; The interface staff worked in before</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="shots/rx-report-detail.png" alt="Aggregate safety review detail view with distribution table and assessment narrative" loading="lazy" decoding="async">
+          <figcaption>04 &mdash; The report specialists assemble</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="shots/rx-cases.png" alt="Case management table with statuses, due dates and completion-rate panel" loading="lazy" decoding="async">
+          <figcaption>05 &mdash; Case processing</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__bar"><div class="sec__bar-in"><span>02 · What I did</span><span>Pharmacovigilance, US</span></div></div>
+    <div class="wrap sec__body">
+      <div class="row reveal">
+        <p class="row__label">Approach</p>
+        <div class="row__body row__body--split">
+          <p>Merged related data-entry steps into unified, contextual screens. Added progressive disclosure so only relevant fields show at each stage. Cut redundant confirmation steps. Validated every reduction with clinical staff before it shipped.</p>
+          <p><strong>A second, parallel problem: reporting had outgrown its users.</strong> As the platform&rsquo;s functionality expanded, reporting became more generalised &mdash; and less useful for any single specialist&rsquo;s daily queries. The fix wasn&rsquo;t more features, it was personalisation: data tables scoped to each specialist&rsquo;s role, a one-tap toggle between global and personalised views, and reusable report templates replacing manual, multi-report assembly.</p>
+        </div>
+      </div>
+
+      <div class="row reveal">
+        <p class="row__label">AI assist</p>
+        <div class="row__body row__body--split">
+          <p>Lab results arrived as scanned images staff transcribed by hand. AI-assisted recognition now auto-fills report fields directly from those images &mdash; handling roughly 80% of entries without human input (estimated from the observed recognition-confidence distribution).</p>
+          <p>A confidence score routes anything below threshold to a specialist, and every recognised value links back to its exact source. Compliance stays intact: nothing ships without either model confidence or a human sign-off.</p>
+        </div>
+      </div>
+
+      <div class="shot-grid shot-grid--pair reveal">
+        <figure class="shot">
+          <img src="shots/rx-platform.png" alt="RxLogix safety intelligence platform key visual with case, signal and uptime figures" loading="lazy" decoding="async">
+          <figcaption>06 &mdash; Safety intelligence platform</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="shots/rx-ai-mapping.png" alt="AI field identification mapping a scanned CIOMS form to report fields with confidence scores" loading="lazy" decoding="async">
+          <figcaption>07 &mdash; AI recognition with per-field confidence</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="shots/rx-signals.png" alt="Signals management queue with priority and status columns, plus collapsed navigation" loading="lazy" decoding="async">
+          <figcaption>08 &mdash; Signal evaluation queue</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="shots/rx-quality.png" alt="Quality analytics view showing findings distribution by issue category" loading="lazy" decoding="async">
+          <figcaption>09 &mdash; Quality findings, tracked</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<nav class="wrap next">
+  <a href="newday.html"><i aria-hidden="true">&larr;</i>NewDay Agency</a>
+  <a href="carnival.html">Carnival Corporation<i aria-hidden="true">&rarr;</i></a>
+</nav>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <span>Serhii Kovalchuk &mdash; Senior Product Designer</span>
+    <span>Rivne, Ukraine &middot; EET</span>
+    <span>&copy; 2026</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-in');
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  }
+
+  var bar = document.getElementById('progress'), raf = null;
+  function tick() {
+    raf = null;
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', function () { if (!raf) raf = requestAnimationFrame(tick); }, { passive: true });
+  tick();
+})();
+</script>
+
+</body>
+</html>
