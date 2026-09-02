@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Terry Costa POS — One inventory grid, not five spreadsheets · Serhii Kovalchuk</title>
+<title>Terry Costa POS — Two legacy systems, one platform · Serhii Kovalchuk</title>
 <meta name="description" content="Building a staff-facing POS dashboard for Terry Costa so sales, stock, and vouchers per style, color, and size lived in one place.">
 <meta name="theme-color" content="#0D0F12">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%231B3FD8'/%3E%3Crect x='22' y='33' width='56' height='13' rx='2' fill='%23E9EAE5' opacity='.5'/%3E%3Crect x='22' y='54' width='28' height='13' rx='2' fill='%23E9EAE5'/%3E%3C/svg%3E">
@@ -22,6 +22,7 @@
     <a class="nav__mark" href="../index.html">SK <span>Serhii Kovalchuk</span></a>
     <div class="nav__links">
       <a href="../index.html">Home</a>
+      <a href="cases.html">Cases</a>
       <a href="../index.html#contact">Contact</a>
     </div>
   </div>
@@ -33,7 +34,7 @@
     <div class="wrap">
       <a class="case-hero__back" href="cases.html"><i aria-hidden="true">&larr;</i>All cases</a>
       <p class="mono">Terry Costa POS &middot; via NewDay agency &middot; Dallas, TX</p>
-      <h1 class="case-hero__title">One inventory grid, not five spreadsheets</h1>
+      <h1 class="case-hero__title">Two legacy systems, one platform</h1>
       <p class="case-hero__dek">Building a staff-facing POS dashboard so sales, stock, and vouchers for every style, color, and size lived in one place.</p>
     </div>
   </header>
@@ -50,7 +51,7 @@
         <div class="results__grid">
           <div class="result result--lead">
             <p class="result__head">1 grid, every color and size</p>
-            <p>Style detail pages replaced five separate stock spreadsheets.</p>
+            <p>Style detail pages replaced RetailPro and a paper Bluebook catalog with one real-time record.</p>
           </div>
           <div class="result">
             <p class="result__head">Sales, stock, and vouchers on load</p>
@@ -66,23 +67,24 @@
       <div class="row reveal">
         <p class="row__label">Situation</p>
         <div class="row__body row__body--split">
-          <p>Terry Costa&rsquo;s back office tracked thousands of styles &mdash; each in multiple colors and ten-plus sizes &mdash; across spreadsheets: one for purchase orders, one for sales history, one for vouchers. None of them talked to each other.</p>
-          <p>Answering a simple question &mdash; how many size 8s in Neon Pink are left, and were any promised to a voucher &mdash; meant three files open at once.</p>
+          <p>Terry Costa&rsquo;s back office ran on two systems that never talked to each other: RetailPro, a digital POS handling transactions, and Bluebook, a paper catalog staff kept for style, vendor, and voucher detail RetailPro didn&rsquo;t track.</p>
+          <p>Answering a simple question &mdash; how many size 8s in Neon Pink are left, and were any promised to a voucher &mdash; meant checking a screen and a binder, then reconciling them by hand.</p>
         </div>
       </div>
 
       <div class="row reveal">
         <p class="row__label">Deciding insight</p>
         <div class="row__body">
-          <p class="lede">Sitting with a staffer working a purchase order showed the friction wasn&rsquo;t finding data &mdash; it was that stock, sales, and voucher records lived in separate files that never lined up, so every answer had to be reassembled by hand.</p>
-          <p>That reframed the build around a single record per style: one color/size grid that sales history, stock counts, and vouchers all rolled up into.</p>
+          <p class="lede">Sitting with a staffer working a purchase order showed the friction wasn&rsquo;t finding data &mdash; it was that RetailPro and Bluebook each held half the picture, so every answer had to be reassembled by hand across a screen and a binder.</p>
+          <p>That reframed the build around a single record per style &mdash; a Single Style View proposed and validated with staff &mdash; one color/size grid that sales history, stock counts, and vouchers all rolled up into, fed by a sync layer against RetailPro and eStyle.</p>
         </div>
       </div>
 
       <div class="row reveal">
         <p class="row__label">Research</p>
         <div class="row__body">
-          <p>Mapped every field staff cross-referenced by hand &mdash; style, vendor, department, receive date, sold date, voucher cost &mdash; into one shared style/color/size record, then built the dashboard and detail views around that record instead of around the old spreadsheet boundaries.</p>
+          <p>Mapped every field staff cross-referenced by hand &mdash; style, vendor, department, receive date, sold date, voucher cost &mdash; into one shared style/color/size record, then built the dashboard and detail views around that record instead of around RetailPro and Bluebook&rsquo;s old boundaries. The record covered five purchase order types and three voucher types, and 30+ report types staff had been pulling from RetailPro by hand.</p>
+          <p>Handled on the floor, connectivity couldn&rsquo;t be assumed, so the tool was designed offline-first, with explicit syncing and conflict states surfaced whenever a local edit and a RetailPro/eStyle sync disagreed &mdash; and built to PCI DSS and GDPR requirements given the payment and customer data running through it.</p>
         </div>
       </div>
 
@@ -101,7 +103,7 @@
       <div class="row reveal">
         <p class="row__label">Approach</p>
         <div class="row__body row__body--split">
-          <p>Built a style detail page laying out every color/size combination as one grid, with tabs for sales history, on-hand, and on-order counts instead of five spreadsheets to reconcile by hand, plus an add-style flow for onboarding new inventory.</p>
+          <p>Built a style detail page laying out every color/size combination as one grid, with tabs for sales history, on-hand, and on-order counts instead of RetailPro and a paper Bluebook to reconcile by hand, plus an add-style flow for onboarding new inventory.</p>
           <p>Added an image manager for product photography and a voucher search that surfaces receive date, cost, and item count in one lookup, and kept the tool&rsquo;s visual language &mdash; type, pink accent, black square mark &mdash; identical to the storefront so it read as one product built by one team.</p>
         </div>
       </div>
