@@ -222,6 +222,11 @@
 }
 @media (min-width: 760px){ .cs{ grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .csc{ display: grid; gap: .9rem; align-content: start; }
+.csc__head{ display: grid; gap: .35rem; }
+.csc__kicker{
+  font-family: var(--f-data); font-size: .78rem; letter-spacing: .02em;
+  color: var(--ink-3); line-height: 1.3;
+}
 .csc__img{
   position: relative; aspect-ratio: 16 / 9; overflow: hidden;
   border: 1px solid var(--rule); background: var(--bg-lift);
