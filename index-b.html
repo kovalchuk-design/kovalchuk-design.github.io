@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Serhii Kovalchuk — Product Designer for regulated, data-heavy software (Concept B)</title>
+<meta name="description" content="Senior product designer, 10+ years across fintech, medical, and enterprise software. Alternative design concept for comparison.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#F1F1EC">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='4' fill='%23B23A2E'/%3E%3Crect x='24' y='34' width='52' height='10' fill='%23F1F1EC'/%3E%3Crect x='24' y='54' width='30' height='10' fill='%23F1F1EC'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   CONCEPT B — annotated record
+   A light, document-grounded alternative to the dark technical
+   system: a scholarly serif for reading, a regulatory-standard
+   sans for structure, and a single "redline" accent reserved
+   for flagged numbers and live status — nothing decorative.
+   ============================================================ */
+
+:root{
+  --paper:      #F1F1EC;
+  --paper-dim:  #E7E7DF;
+  --ink:        #1B1F1A;
+  --ink-2:      #4B4F49;
+  --ink-3:      #80847A;
+  --rule:       rgba(27,31,26,.14);
+  --rule-strong:rgba(27,31,26,.34);
+  --mark:       #B23A2E;
+  --mark-dim:   rgba(178,58,46,.10);
+
+  --f-serif: "STIX Two Text", "Iowan Old Style", Georgia, serif;
+  --f-sans:  "Public Sans", system-ui, sans-serif;
+
+  --maxw:   1280px;
+  --gutter: clamp(1.1rem, 4vw, 3.25rem);
+  --rail:   clamp(7.25rem, 13vw, 11rem);
+
+  --sp-3xs: .35rem;
+  --sp-2xs: .6rem;
+  --sp-xs:  1rem;
+  --sp-sm:  1.5rem;
+  --sp-md:  clamp(2rem, 4vw, 3rem);
+  --sp-lg:  clamp(2.75rem, 5.5vw, 4.25rem);
+  --sp-xl:  clamp(3.5rem, 6.5vw, 5.5rem);
+  --sp-2xl: clamp(4.25rem, 8vw, 7rem);
+
+  --ease: cubic-bezier(.2,.7,.3,1);
+}
+
+*,*::before,*::after{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin: 0; background: var(--paper); color: var(--ink);
+  font-family: var(--f-sans); font-size: clamp(.98rem, .94rem + .2vw, 1.05rem);
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+}
+a{ color: inherit; }
+p{ margin: 0; }
+h1,h2,h3{ margin: 0; font-weight: 400; }
+ul,ol{ margin: 0; padding: 0; list-style: none; }
+img{ display: block; max-width: 100%; height: auto; }
+::selection{ background: var(--mark); color: var(--paper); }
+:focus-visible{ outline: 2px solid var(--mark); outline-offset: 3px; }
+
+.skip{ position: absolute; left: -9999px; }
+.skip:focus{ left: var(--gutter); top: 1rem; z-index: 60; background: var(--ink); color: var(--paper); padding: .6rem 1rem; }
+
+/* ---------- compare badge ---------- */
+.compare{
+  position: fixed; right: clamp(.6rem, 2vw, 1.25rem); bottom: clamp(.6rem, 2vw, 1.25rem); z-index: 50;
+  font-family: var(--f-sans); font-size: .74rem; letter-spacing: .01em;
+  background: var(--ink); color: var(--paper); text-decoration: none;
+  padding: .55rem .9rem; border-radius: 2px;
+  box-shadow: 0 6px 20px rgba(27,31,26,.22);
+}
+.compare:hover{ background: var(--mark); }
+
+/* ---------- shell ---------- */
+.frame{
+  max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gutter);
+  display: grid; grid-template-columns: var(--rail) minmax(0,1fr);
+  column-gap: clamp(1.25rem, 3vw, 2.5rem);
+}
+@media (max-width: 760px){ .frame{ grid-template-columns: 1fr; row-gap: .5rem; } }
+
+.block{ padding-block: var(--sp-2xl); border-top: 1px solid var(--rule); }
+.block--tight{ padding-block: var(--sp-lg); }
+
+.rail{ font-size: .82rem; line-height: 1.6; color: var(--ink-3); padding-top: .3rem; }
+@media (max-width: 760px){ .rail{ padding-top: 0; margin-bottom: var(--sp-xs); } }
+.rail p + p{ margin-top: .3rem; }
+.rail__title{ color: var(--ink); font-weight: 600; }
+
+.status{ display: inline-flex; align-items: center; gap: .5rem; color: var(--ink); font-weight: 500; }
+.status__dot{ width: .42rem; height: .42rem; border-radius: 50%; background: var(--mark); flex: none; }
+
+/* ---------- nav ---------- */
+.nav{
+  position: sticky; top: 0; z-index: 40;
+  background: color-mix(in srgb, var(--paper) 90%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule);
+}
+.nav__inner{
+  max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gutter);
+  height: 3.4rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.nav__mark{ font-family: var(--f-serif); font-size: 1.02rem; text-decoration: none; color: var(--ink); }
+.nav__links{ display: flex; align-items: center; gap: clamp(.9rem, 2vw, 1.6rem); }
+.nav__links a{ font-size: .84rem; text-decoration: none; color: var(--ink-2); padding-block: .3rem; border-bottom: 1px solid transparent; }
+.nav__links a:hover{ color: var(--ink); border-color: var(--rule-strong); }
+.nav__hide{ display: none; }
+@media (min-width: 680px){ .nav__hide{ display: inline; } }
+
+/* ---------- hero ---------- */
+.hero{ padding-top: var(--sp-xl); padding-bottom: var(--sp-lg); border-top: 0; }
+.hero__name{
+  font-family: var(--f-serif); font-weight: 500;
+  font-size: clamp(2.6rem, 2rem + 4.2vw, 5.75rem); line-height: .98; letter-spacing: -.01em;
+  animation: rise .7s var(--ease) both;
+}
+.hero__role{
+  margin-top: var(--sp-2xs);
+  font-family: var(--f-serif); font-style: italic; font-weight: 400;
+  font-size: clamp(1.1rem, 1rem + .6vw, 1.5rem); color: var(--ink-2);
+  animation: rise .7s var(--ease) .08s both;
+}
+.hero__grid{
+  display: grid; gap: var(--sp-sm) var(--sp-xl);
+  margin-top: var(--sp-lg); padding-top: var(--sp-sm); border-top: 1px solid var(--rule);
+  animation: rise .7s var(--ease) .16s both;
+}
+@media (min-width: 860px){ .hero__grid{ grid-template-columns: minmax(0,1fr) minmax(0,1fr); align-items: start; } }
+.hero__lede{
+  font-family: var(--f-serif); font-size: clamp(1.3rem, 1.1rem + .9vw, 1.85rem); line-height: 1.32; max-width: 24ch;
+}
+.hero__aside p{ color: var(--ink-2); max-width: 52ch; }
+.hero__cta{ display: flex; flex-wrap: wrap; gap: .6rem; margin-top: var(--sp-sm); }
+@keyframes rise{ from{ opacity: 0; transform: translateY(8px); } to{ opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce){ .hero__name, .hero__role, .hero__grid{ animation: none; } html{ scroll-behavior: auto; } }
+
+/* ---------- buttons ---------- */
+.btn{
+  display: inline-flex; align-items: center; font-family: var(--f-sans); font-size: .84rem; font-weight: 500;
+  text-decoration: none; padding: .7rem 1.1rem; border-radius: 2px; border: 1px solid var(--ink);
+  transition: background .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease);
+}
+.btn--solid{ background: var(--ink); color: var(--paper); }
+.btn--solid:hover{ background: var(--mark); border-color: var(--mark); }
+.btn--line{ background: transparent; color: var(--ink); }
+.btn--line:hover{ border-color: var(--mark); color: var(--mark); }
+
+/* ---------- proof / outcomes ---------- */
+.outcomes{ display: grid; }
+.outcome{ padding-block: var(--sp-sm); border-top: 1px solid var(--rule); }
+.outcome:first-child{ border-top: 0; }
+.outcome__stat{ font-family: var(--f-serif); font-size: clamp(1.6rem, 1.3rem + 1.4vw, 2.4rem); font-variant-numeric: tabular-nums; }
+.outcome__stat b{ color: var(--mark); font-weight: 500; }
+.outcome__body{ margin-top: .35rem; color: var(--ink-2); max-width: 62ch; }
+.outcome__src{ margin-top: .5rem; font-size: .78rem; color: var(--ink-3); }
+
+/* ---------- lead statement ---------- */
+.lead{ font-family: var(--f-serif); font-size: clamp(1.25rem, 1.05rem + .8vw, 1.75rem); line-height: 1.35; max-width: 42ch; margin-bottom: var(--sp-lg); }
+
+/* ---------- experience / case entries ---------- */
+.case{ padding-block: var(--sp-md); border-top: 1px solid var(--rule); }
+.case:first-of-type{ border-top: 0; padding-top: 0; }
+.case__head{ display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.case__org{ font-family: var(--f-serif); font-size: clamp(1.4rem, 1.2rem + 1vw, 2rem); }
+.case__years{ font-size: .82rem; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.case__body{ display: grid; gap: var(--sp-sm) var(--sp-lg); margin-top: var(--sp-2xs); }
+@media (min-width: 860px){ .case__body{ grid-template-columns: minmax(0,1.3fr) minmax(13rem,.9fr); } }
+.case__desc{ color: var(--ink-2); max-width: 56ch; }
+.case__tags{ margin-top: var(--sp-xs); color: var(--ink-3); font-size: .86rem; max-width: 56ch; }
+.case__link{ display: inline-block; margin-top: var(--sp-sm); font-size: .88rem; text-decoration: underline; text-decoration-color: var(--rule-strong); text-underline-offset: .2rem; }
+.case__link:hover{ text-decoration-color: var(--mark); color: var(--mark); }
+.spec{ font-size: .86rem; }
+.spec__row{ padding-block: .5rem; border-top: 1px solid var(--rule); }
+.spec__row:first-child{ border-top: 0; }
+.spec dt{ color: var(--ink-3); }
+.spec dd{ margin: .1rem 0 0; color: var(--ink); }
+
+/* ---------- earlier timeline ---------- */
+.earlier__note{ color: var(--ink-2); max-width: 54ch; margin-bottom: var(--sp-sm); }
+.trow{
+  display: grid; gap: .15rem 1.5rem; padding-block: .65rem; border-top: 1px solid var(--rule);
+  font-size: .88rem;
+}
+@media (min-width: 700px){ .trow{ grid-template-columns: 7.5rem minmax(0,1fr) minmax(0,1.2fr); align-items: baseline; } }
+.trow__y{ color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.trow__r{ color: var(--ink-2); }
+
+/* ---------- case library plates ---------- */
+.plates{
+  display: grid; gap: var(--sp-lg);
+}
+@media (min-width: 900px){ .plates{ grid-template-columns: minmax(0,1.15fr) minmax(0,.85fr); } }
+.plates__grid{ display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: var(--sp-2xs); }
+.plate{ aspect-ratio: 4/3; overflow: hidden; border: 1px solid var(--rule-strong); border-radius: 2px; background: var(--paper-dim); }
+.plate img{ width: 100%; height: 100%; object-fit: cover; }
+.plate--wide{ grid-column: 1 / -1; aspect-ratio: 16/7; }
+.plates__text .lead{ margin-bottom: var(--sp-sm); }
+.plates__stats{ margin-top: var(--sp-sm); }
+.pstat{ padding-block: var(--sp-2xs); border-top: 1px solid var(--rule); }
+.pstat:first-child{ border-top: 0; }
+.pstat b{ font-family: var(--f-serif); color: var(--mark); font-weight: 500; font-size: 1.2rem; }
+.pstat span{ display: block; color: var(--ink-2); font-size: .88rem; margin-top: .15rem; }
+
+/* ---------- AI ---------- */
+.ai{ display: grid; gap: var(--sp-lg); }
+@media (min-width: 860px){ .ai{ grid-template-columns: repeat(2, minmax(0,1fr)); column-gap: var(--sp-xl); } }
+.ai__col h3{ font-family: var(--f-serif); font-size: 1.15rem; padding-bottom: var(--sp-2xs); border-bottom: 1px solid var(--rule-strong); margin-bottom: var(--sp-2xs); }
+.ai__col ol{ counter-reset: step; }
+.ai__col li{
+  counter-increment: step; position: relative; padding: .6rem 0 .6rem 1.6rem; border-top: 1px solid var(--rule);
+  color: var(--ink-2); font-size: .93rem;
+}
+.ai__col li:first-child{ border-top: 0; }
+.ai__col li::before{ content: counter(step) "."; position: absolute; left: 0; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.ai__col strong{ color: var(--ink); font-weight: 600; }
+.ai__close{ margin-top: var(--sp-lg); font-family: var(--f-serif); font-size: clamp(1.2rem, 1.05rem + .6vw, 1.6rem); max-width: 40ch; }
+
+/* ---------- capabilities ---------- */
+.caps{ display: grid; gap: var(--sp-md) var(--sp-lg); }
+@media (min-width: 640px){ .caps{ grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (min-width: 1080px){ .caps{ grid-template-columns: repeat(4, minmax(0,1fr)); } }
+.cap h3{ font-family: var(--f-serif); font-size: 1.1rem; padding-bottom: var(--sp-2xs); border-bottom: 1px solid var(--rule-strong); margin-bottom: var(--sp-2xs); }
+.cap li{ font-size: .89rem; color: var(--ink-2); padding-block: .3rem; border-top: 1px solid var(--rule); }
+.cap li:first-child{ border-top: 0; }
+
+/* ---------- contact ---------- */
+.contact__h{ font-family: var(--f-serif); font-size: clamp(1.9rem, 1.4rem + 2.4vw, 3.4rem); line-height: 1.05; max-width: 18ch; }
+.contact__sub{ margin-top: var(--sp-sm); max-width: 66ch; color: var(--ink-2); }
+.links{ margin-top: var(--sp-lg); }
+.lrow{
+  display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
+  padding: 1rem 0; border-top: 1px solid var(--rule); text-decoration: none;
+}
+.lrow:last-child{ border-bottom: 1px solid var(--rule); }
+.lrow__k{ color: var(--ink-3); font-size: .84rem; }
+.lrow__v{ font-size: .95rem; text-align: right; overflow-wrap: anywhere; }
+.lrow:hover .lrow__v{ color: var(--mark); }
+
+/* ---------- footer ---------- */
+.footer{ border-top: 1px solid var(--rule); }
+.footer__inner{
+  max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gutter);
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: .4rem 1.5rem;
+  padding-block: 1.5rem; font-size: .8rem; color: var(--ink-3);
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+<a class="compare" href="index.html">View original design</a>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a class="nav__mark" href="#top">Serhii Kovalchuk</a>
+    <div class="nav__links">
+      <a href="work/cases.html">Cases</a>
+      <a href="#ai" class="nav__hide">AI in my process</a>
+      <a href="#capabilities" class="nav__hide">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+  <!-- ===== HERO ===== -->
+  <header id="top" class="frame hero">
+    <div class="rail">
+      <p class="status"><span class="status__dot" aria-hidden="true"></span>Open to work</p>
+      <p>Remote, US &amp; EU teams</p>
+      <p>Senior Product Designer, 10+ years</p>
+      <p>Rivne, Ukraine (EET)</p>
+    </div>
+    <div>
+      <h1 class="hero__name">Serhii Kovalchuk</h1>
+      <p class="hero__role">Product designer for regulated, data-heavy software.</p>
+
+      <div class="hero__grid">
+        <p class="hero__lede">I design the interfaces where a wrong click is expensive.</p>
+        <div class="hero__aside">
+          <p>Pharmacovigilance dashboards. Identity verification. Boarding systems thousands of people pass through in a single morning. Most of the work is removal — steps, ambiguity, screens that shouldn&rsquo;t exist — then writing the rules down so the next team doesn&rsquo;t put them back.</p>
+          <div class="hero__cta">
+            <a class="btn btn--solid" href="#work">See the experience</a>
+            <a class="btn btn--line" href="mailto:sergeikovalchuck@gmail.com">Email</a>
+            <a class="btn btn--line" href="https://www.linkedin.com/in/sergii-kovalchuck-014049168/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== OUTCOMES ===== -->
+  <section class="frame block block--tight" id="outcomes">
+    <div class="rail"><p class="rail__title">Selected outcomes</p></div>
+    <div class="outcomes">
+      <article class="outcome">
+        <p class="outcome__stat"><b>80% less</b> manual report data entry</p>
+        <p class="outcome__body">AI reads scanned lab results and auto-fills report fields; low-confidence entries route to a specialist, every value traceable to its source. Manual entry dropped from 100% of reports to roughly 20% still reviewed by hand.</p>
+        <p class="outcome__src">RxLogix, 2025 — estimated from the observed recognition-confidence distribution, not a directly measured outcome.</p>
+      </article>
+      <article class="outcome">
+        <p class="outcome__stat"><b>58% fewer</b> clinical workflow steps</p>
+        <p class="outcome__body">Seven of twelve steps existed because of legacy system logic, not clinical or regulatory need. Compliance mandated five; the workflow now runs in five.</p>
+        <p class="outcome__src">RxLogix, 2025.</p>
+      </article>
+      <article class="outcome">
+        <p class="outcome__stat"><b>50% shorter</b> passenger boarding time</p>
+        <p class="outcome__body">Redesigned the crew tablet workflow used to check passengers through boarding, cutting the touchpoint from 2 minutes 40 seconds to 1 minute 20 — separate from the terminal&rsquo;s wayfinding displays and the passenger ordering app.</p>
+        <p class="outcome__src">Carnival, 2023.</p>
+      </article>
+      <article class="outcome">
+        <p class="outcome__stat"><b>43% fewer</b> restaurant ordering steps</p>
+        <p class="outcome__body">Restructured the ordering flow and added a persistent back action, cutting the steps needed to place an order from seven to four.</p>
+        <p class="outcome__src">Carnival, 2023.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <section class="frame block" id="work">
+    <div class="rail"><p class="rail__title">Experience</p><p>2012 to present</p></div>
+    <div>
+      <p class="lead">The last three roles, in detail — and the ten years of agency work that built the method.</p>
+
+      <article class="case">
+        <div class="case__head">
+          <h3 class="case__org">RxLogix</h3>
+          <span class="case__years">2025 — present</span>
+        </div>
+        <div class="case__body">
+          <div>
+            <p class="case__desc">Clinical workflows and data dashboards for teams who can&rsquo;t afford a wrong click. Defining interaction logic with medical staff before design, and documenting edge cases so engineering doesn&rsquo;t have to guess.</p>
+            <p class="case__tags">Data dashboards, workflow UI, spec &amp; edge cases, design system audit, AI-assisted recognition.</p>
+            <a class="case__link" href="work/rxlogix.html">Read the case</a>
+          </div>
+          <dl class="spec">
+            <div class="spec__row"><dt>Role</dt><dd>Contract, senior product designer</dd></div>
+            <div class="spec__row"><dt>Domain</dt><dd>Pharmacovigilance &amp; medical data, B2B SaaS</dd></div>
+            <div class="spec__row"><dt>Team</dt><dd>US, remote — design, engineering, QA</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case__head">
+          <h3 class="case__org">NewDay</h3>
+          <span class="case__years">2023 — 2025</span>
+        </div>
+        <div class="case__body">
+          <div>
+            <p class="case__desc">KYC and identity verification flows rebuilt to stop losing people mid-onboarding. Led design end to end — client discovery, wireframes, UI, usability testing — and presented the reasoning at every stage.</p>
+            <p class="case__tags">KYC &amp; compliance, onboarding funnels, usability testing, client-facing.</p>
+            <a class="case__link" href="work/newday.html">Read the case</a>
+          </div>
+          <dl class="spec">
+            <div class="spec__row"><dt>Role</dt><dd>Contract, senior product designer</dd></div>
+            <div class="spec__row"><dt>Domain</dt><dd>Fintech, CRM, web platforms</dd></div>
+            <div class="spec__row"><dt>Team</dt><dd>Netherlands, remote — agency, multi-client</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case__head">
+          <h3 class="case__org">Carnival</h3>
+          <span class="case__years">2022 — 2023</span>
+        </div>
+        <div class="case__body">
+          <div>
+            <p class="case__desc">One product family across 65-inch displays, tablets, and phones, for passengers and crew alike. Built adaptive interaction logic — not scaled layouts — and contributed to the shared design system behind it.</p>
+            <p class="case__tags">Multi-device UX, design system, adaptive logic, multi-team.</p>
+            <a class="case__link" href="work/carnival.html">Read the case</a>
+          </div>
+          <dl class="spec">
+            <div class="spec__row"><dt>Role</dt><dd>Contract, senior product designer</dd></div>
+            <div class="spec__row"><dt>Domain</dt><dd>Hospitality ecosystem, multi-device</dd></div>
+            <div class="spec__row"><dt>Team</dt><dd>US, remote — several product teams</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <div class="block block--tight" style="border-top:1px solid var(--rule); padding-inline:0;">
+        <p class="earlier__note"><strong style="font-weight:600;color:var(--ink)">Ten years before the three above.</strong> Agency and freelance work in Ukraine and the UK — the years that turned into the method: research first, then removal, then documentation.</p>
+        <div class="trow"><span class="trow__y">2021 — 2022</span><span>Freelance, Ukraine</span><span class="trow__r">Product design, mixed web &amp; mobile clients</span></div>
+        <div class="trow"><span class="trow__y">2020 — 2021</span><span>HelloClicks, United Kingdom</span><span class="trow__r">Product / UI designer</span></div>
+        <div class="trow"><span class="trow__y">2017 — 2020</span><span>The Yard Design, United Kingdom</span><span class="trow__r">UI / UX designer</span></div>
+        <div class="trow"><span class="trow__y">2012 — 2017</span><span>Silk Design, Ukraine</span><span class="trow__r">Designer to team lead</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CASE LIBRARY ===== -->
+  <section class="frame block" id="cases">
+    <div class="rail"><p class="rail__title">Case library</p></div>
+    <div class="plates">
+      <div class="plates__grid">
+        <div class="plate"><img src="shots/cs-shot-1.webp" alt="Case screenshot" loading="lazy" decoding="async"></div>
+        <div class="plate"><img src="shots/cs-shot-2.webp" alt="Case screenshot" loading="lazy" decoding="async"></div>
+        <div class="plate"><img src="shots/cs-shot-3.webp" alt="Case screenshot" loading="lazy" decoding="async"></div>
+        <div class="plate"><img src="shots/cs-shot-4.webp" alt="Case screenshot" loading="lazy" decoding="async"></div>
+        <div class="plate plate--wide"><img src="shots/cs-shot-5.webp" alt="Case screenshot" loading="lazy" decoding="async"></div>
+      </div>
+      <div class="plates__text">
+        <p class="lead">Work worth building, and worth showing.</p>
+        <p style="color:var(--ink-2);max-width:46ch;">Client engagements and product bets — regulated enterprise platforms, B2B SaaS, and launch-ready apps. Every case here ships a number: retention, satisfaction, or time removed from a workflow.</p>
+        <div class="plates__stats">
+          <div class="pstat"><b>+40%</b><span>Customer satisfaction — Appointlet, scheduling SaaS, USA</span></div>
+          <div class="pstat"><b>5 wks</b><span>Concept to launch-ready — Fizbo, FSBO marketplace, Nashville TN</span></div>
+        </div>
+        <a class="btn btn--solid" href="work/cases.html" style="margin-top:var(--sp-md)">See all cases</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== AI ===== -->
+  <section class="frame block" id="ai">
+    <div class="rail"><p class="rail__title">Working with AI</p></div>
+    <div>
+      <p class="lead">Designing with AI, and for AI that has to be accountable to a compliance review.</p>
+      <div class="ai">
+        <div class="ai__col">
+          <h3>Designing with AI</h3>
+          <ol>
+            <li><strong>Base research</strong> — AI-assisted synthesis of market, competitor, and user research before a single wireframe exists</li>
+            <li><strong>IA &amp; navigation</strong> — exploring structural options fast, then validating the one that survives scrutiny</li>
+            <li><strong>Workflow wireframes</strong> — AI-accelerated iteration, human-decided information hierarchy</li>
+            <li><strong>FSD documentation</strong> — AI-assisted drafting of the specs engineering actually reads</li>
+            <li><strong>Feature tests</strong> — AI-supported test case generation before handoff, not after bugs show up</li>
+          </ol>
+        </div>
+        <div class="ai__col">
+          <h3>Designing for regulated AI</h3>
+          <ol>
+            <li><strong>Confidence-scored automation</strong> — a threshold decides what ships automatically and what a human sees first</li>
+            <li><strong>Traceable sourcing</strong> — every AI-recognized value links back to its exact source, so a reviewer can verify, not just trust</li>
+            <li><strong>Audit trails</strong> — surfacing what the system decided and why, in the interface, not buried in a log file</li>
+            <li><strong>Override paths</strong> — designing the moment a human has to disagree with the model as a first-class interaction</li>
+            <li><strong>Decision documentation</strong> — making AI reasoning legible enough to survive a compliance review</li>
+          </ol>
+        </div>
+      </div>
+      <p class="ai__close">AI speeds up the draft. I own what ships.</p>
+    </div>
+  </section>
+
+  <!-- ===== CAPABILITIES ===== -->
+  <section class="frame block" id="capabilities">
+    <div class="rail"><p class="rail__title">What I can be handed</p></div>
+    <div class="caps">
+      <div class="cap">
+        <h3>Product design</h3>
+        <ul>
+          <li>Discovery &amp; problem framing</li>
+          <li>UX research &amp; synthesis</li>
+          <li>User journeys &amp; flows</li>
+          <li>Wireframes &amp; prototypes</li>
+          <li>Usability testing &amp; iteration</li>
+          <li>Funnel optimisation</li>
+          <li>JTBD, heuristic evaluation</li>
+        </ul>
+      </div>
+      <div class="cap">
+        <h3>Design systems</h3>
+        <ul>
+          <li>Component libraries</li>
+          <li>Design tokens</li>
+          <li>Interaction patterns</li>
+          <li>Layout grids &amp; spacing</li>
+          <li>Governance</li>
+          <li>Multi-team adoption</li>
+          <li>Documentation</li>
+        </ul>
+      </div>
+      <div class="cap">
+        <h3>Regulated &amp; enterprise</h3>
+        <ul>
+          <li>KYC &amp; identity verification</li>
+          <li>Compliance flows</li>
+          <li>Clinical workflows</li>
+          <li>Data-dense interfaces</li>
+          <li>Screen-adaptive UX</li>
+          <li>Accessibility (WCAG 2.1)</li>
+          <li>Information architecture</li>
+        </ul>
+      </div>
+      <div class="cap">
+        <h3>Working with teams</h3>
+        <ul>
+          <li>Edge-case &amp; handoff docs</li>
+          <li>Design–engineering alignment</li>
+          <li>Client discovery calls</li>
+          <li>Stakeholder workshops</li>
+          <li>Sprint integration, agile</li>
+          <li>Figma, Dev Mode, FigJam</li>
+          <li>Miro, Jira, Confluence</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="frame block" id="contact">
+    <div class="rail"><p class="rail__title">Get in touch</p><p>sergeikovalchuck@gmail.com</p></div>
+    <div>
+      <h2 class="contact__h">Have a hard interface problem?</h2>
+      <p class="contact__sub">Open to senior product design roles and contract work with US and EU teams — remote-only, from Rivne, Ukraine (EET), with 6&ndash;7 hour overlap with US business hours and full-day overlap with EU. My last three roles were contract engagements — the shape of work I&rsquo;m continuing to look for, alongside full-time.</p>
+
+      <div class="links">
+        <a class="lrow" href="mailto:sergeikovalchuck@gmail.com">
+          <span class="lrow__k">Email</span>
+          <span class="lrow__v">sergeikovalchuck@gmail.com</span>
+        </a>
+        <a class="lrow" href="https://www.linkedin.com/in/sergii-kovalchuck-014049168/" target="_blank" rel="noopener">
+          <span class="lrow__k">LinkedIn</span>
+          <span class="lrow__v">in/sergii-kovalchuck</span>
+        </a>
+        <a class="lrow" href="tel:+380984032997">
+          <span class="lrow__k">Phone</span>
+          <span class="lrow__v">+38 098 403 2997</span>
+        </a>
+        <a class="lrow" href="https://telegram.me/serhii_kovalchuck" target="_blank" rel="noopener">
+          <span class="lrow__k">Telegram</span>
+          <span class="lrow__v">@serhii_kovalchuck</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <span>Serhii Kovalchuk — Senior Product Designer</span>
+    <span>Rivne, Ukraine, EET</span>
+    <span>© 2026</span>
+  </div>
+</footer>
+
+</body>
+</html>
