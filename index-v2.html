@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Serhii Kovalchuk — Product Designer for regulated, data-heavy software (v2 preview)</title>
+<meta name="description" content="Senior product designer, 10+ years across fintech, medical, and enterprise software. KYC and compliance flows, clinical workflows, data-heavy dashboards, design systems.">
+<meta name="theme-color" content="#0D0F12">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kovalchuk-design.github.io/">
+<meta property="og:title" content="Serhii Kovalchuk — Product Designer">
+<meta property="og:description" content="Product designer for regulated, data-heavy software. 10+ years across fintech, medical, and enterprise.">
+<meta property="og:image" content="https://kovalchuk-design.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%231B3FD8'/%3E%3Crect x='22' y='33' width='56' height='13' rx='2' fill='%23E9EAE5' opacity='.5'/%3E%3Crect x='22' y='54' width='28' height='13' rx='2' fill='%23E9EAE5'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Sans:wght@400..600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site-v2.css">
+
+<style>
+/* ============================================================
+   HOME — v6 (legibility + spacing + semantics pass)
+   Same content, sections, links, and color tokens as v5.
+   ============================================================ */
+
+/* ---------- opening ---------- */
+.hero{ padding-block: var(--space-xl) var(--space-md); }
+.hero__meta{
+  display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 0;
+  padding-bottom: var(--space-md);
+}
+.hero__meta li{
+  display: flex; align-items: center; gap: .5rem 1.1rem;
+}
+.hero__meta li:not(:first-child){ padding-left: 1.1rem; border-left: 1px solid var(--rule-strong); margin-left: 0; }
+@media (max-width: 800px){
+  .hero__meta li:not(:first-child){ border-left: 0; padding-left: 0; }
+}
+.hero__dot{
+  width: .45rem; height: .45rem; border-radius: 50%; background: var(--accent-lift); flex: none;
+  animation: sk-pulse 2.8s var(--ease) 3;
+}
+@keyframes sk-pulse{
+  0%   { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-lift) 50%, transparent); }
+  70%  { box-shadow: 0 0 0 .45rem color-mix(in srgb, var(--accent-lift) 0%, transparent); }
+  100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-lift) 0%, transparent); }
+}
+
+.hero__name{
+  font-family: var(--f-display); font-variation-settings: var(--ds-display-hero-variation);
+  font-size: var(--ds-display-hero-size);
+  line-height: var(--ds-display-hero-lh); letter-spacing: var(--ds-display-hero-ls); text-transform: uppercase;
+}
+.hero__name span{ display: block; }
+.hero__name i{ font-style: normal; color: var(--accent-lift); }
+
+.hero__split{
+  display: grid; gap: var(--space-sm) var(--space-xl);
+  margin-top: var(--space-md);
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--rule-strong);
+}
+@media (min-width: 880px){
+  .hero__split{ grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: start; }
+}
+.hero__lede{
+  font-family: var(--f-display); font-variation-settings: var(--ds-display-md-variation);
+  font-size: var(--ds-display-md-size);
+  line-height: var(--ds-display-md-lh); letter-spacing: var(--ds-display-md-ls); max-width: 30ch; text-wrap: balance;
+}
+.hero__lede b{ color: var(--accent-lift); }
+.hero__aside p{ font-size: var(--ds-body-size); line-height: var(--ds-body-lh); color: var(--ink-2); max-width: 50ch; }
+.hero__cta{ display: flex; flex-wrap: wrap; gap: var(--space-2xs); margin-top: var(--space-sm); }
+
+/* ---------- proof strip — the four numbers, before/after inline ---------- */
+.proof{
+  display: grid; gap: 1px; background: var(--rule);
+  border-top: 1px solid var(--rule-strong); border-bottom: 1px solid var(--rule-strong);
+}
+@media (min-width: 700px){ .proof{ grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1240px){ .proof{ grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.pcell{
+  background: var(--bg); padding: clamp(1.4rem, 2.8vw, 2rem) var(--gutter);
+  display: grid; gap: .85rem; align-content: start;
+}
+@media (min-width: 700px){ .pcell{ padding-inline: clamp(1.4rem, 2.8vw, 2rem); } }
+@media (min-width: 700px){
+  .pcell:nth-child(odd){ padding-left: var(--gutter); }
+  .pcell:nth-child(even){ padding-right: var(--gutter); }
+}
+@media (min-width: 1240px){
+  .pcell{ padding-inline: clamp(1.4rem, 2vw, 2rem); }
+  .pcell:nth-child(odd){ padding-left: clamp(1.4rem, 2vw, 2rem); }
+  .pcell:nth-child(even){ padding-right: clamp(1.4rem, 2vw, 2rem); }
+  .pcell:first-child{ padding-left: var(--gutter); }
+  .pcell:last-child{ padding-right: var(--gutter); }
+}
+.pcell__d{
+  font-family: var(--f-display); font-variation-settings: var(--ds-stat-lg-variation);
+  font-size: var(--ds-stat-lg-size);
+  line-height: var(--ds-stat-lg-lh); letter-spacing: var(--ds-stat-lg-ls); color: var(--accent-lift);
+  font-variant-numeric: tabular-nums;
+}
+.pcell__t{
+  font-family: var(--f-display); font-variation-settings: var(--ds-display-xs-variation);
+  font-size: var(--ds-display-xs-size); line-height: var(--ds-display-xs-lh); letter-spacing: var(--ds-display-xs-ls);
+}
+.pcell__ba{
+  display: flex; align-items: baseline; flex-wrap: wrap; gap: .4rem var(--space-2xs);
+  font-family: var(--f-data); font-size: var(--ds-mono-ui-size); letter-spacing: .03em;
+  color: var(--ink-2); font-variant-numeric: tabular-nums;
+}
+.pcell__ba s{ text-decoration: line-through; text-decoration-color: var(--ink-3); color: var(--ink-3); }
+.pcell__ba em{ font-style: normal; color: var(--ink-3); }
+.pcell__ba b{ font-weight: 400; color: var(--ink); }
+.pcell__n{ font-size: var(--ds-body-sm-size); line-height: var(--ds-body-sm-lh); color: var(--ink-2); }
+.pcell__w{ font-family: var(--f-data); font-size: var(--ds-mono-micro-size); letter-spacing: var(--ds-mono-micro-ls); text-transform: uppercase; color: var(--ink-3); }
+
+/* ---------- work ---------- */
+.case{ padding-block: var(--space-md); border-top: 1px solid var(--rule); }
+.case:first-of-type{ border-top: 1px solid var(--rule-strong); }
+.case__head{ display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem 1rem; }
+.case__org{
+  font-family: var(--f-display); font-variation-settings: var(--ds-display-lg-variation);
+  font-size: var(--ds-display-lg-size);
+  line-height: var(--ds-display-lg-lh); letter-spacing: var(--ds-display-lg-ls);
+}
+.case__idx{ font-family: var(--f-data); font-size: var(--ds-mono-ui-size); letter-spacing: var(--ds-mono-ui-ls); color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.case__grid{ display: grid; gap: var(--space-sm) var(--space-lg); margin-top: var(--space-sm); }
+@media (min-width: 900px){ .case__grid{ grid-template-columns: minmax(0, 1.15fr) minmax(15rem, .85fr); } }
+.case__desc{ font-size: var(--ds-body-size); line-height: var(--ds-body-lh); color: var(--ink-2); max-width: 54ch; }
+.case__tags{ display: flex; flex-wrap: wrap; gap: var(--space-3xs); margin-top: var(--space-sm); }
+.case__tags li{
+  font-family: var(--f-data); font-size: var(--ds-mono-micro-size); letter-spacing: var(--ds-mono-micro-ls); text-transform: uppercase;
+  padding: .5rem .75rem; border: 1px solid var(--rule); border-radius: 16px; color: var(--ink-3);
+}
+.case__link{
+  display: inline-flex; align-items: center; gap: .5rem; margin-top: var(--space-sm);
+  font-family: var(--f-data); font-size: var(--ds-mono-ui-size); letter-spacing: var(--ds-mono-ui-ls); text-transform: uppercase;
+  text-decoration: none; border-bottom: 1px solid var(--rule-strong); padding-bottom: .3rem;
+  transition: color .2s var(--ease), border-color .2s var(--ease);
+}
+.case__link i{ font-style: normal; transition: transform .25s var(--ease); }
+.case__link:hover{ border-color: var(--accent-lift); }
+.case__link:hover i{ transform: translateX(.3rem); }
+
+.spec{ border-top: 1px solid var(--rule); padding-top: .2rem; }
+.srow{
+  display: grid; grid-template-columns: 5.4rem minmax(0, 1fr);
+  gap: .3rem 1rem; padding-block: .8rem; border-bottom: 1px solid var(--rule);
+  font-family: var(--f-data); font-size: var(--ds-mono-ui-size); line-height: 1.5; letter-spacing: .02em;
+}
+.srow dt{ color: var(--ink-3); text-transform: uppercase; letter-spacing: .08em; font-size: var(--ds-mono-micro-size); padding-top: .15em; }
+.srow dd{ margin: 0; color: var(--ink-2); }
+.srow dd b{ color: var(--ink); font-weight: 500; }
+
+/* ---------- case showcase (mosaic + statement) ---------- */
+.csl{
+  display: grid; grid-template-columns: minmax(0, 60fr) minmax(0, 40fr);
+  gap: var(--space-xl);
+}
+.csl__mosaic{
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-xs);
+}
+.csl__img{
+  position: relative; aspect-ratio: 950 / 1080; overflow: hidden; border-radius: var(--radius, 16px);
+  border: 1px solid var(--rule); background: var(--bg-lift);
+}
+.csl__img img{ width: 100%; height: 100%; object-fit: cover; }
+.csl__img--1{ grid-area: 1 / 2; }
+.csl__img--2{ grid-area: 2 / 1; }
+.csl__img--3{ grid-area: 2 / 2; }
+.csl__img--4{ grid-area: 3 / 2; }
+.csl__img--5{ grid-area: 3 / 3; }
+.csl__kpi{
+  display: grid; gap: var(--space-3xs); align-content: end; text-align: right;
+  padding-bottom: var(--space-3xs);
+}
+.csl__kpi--a{ grid-area: 1 / 1; }
+.csl__kpi--b{ grid-area: 3 / 1; }
+.csl__kpi b{
+  font-family: var(--f-display); font-variation-settings: var(--ds-stat-lg-variation);
+  font-size: var(--ds-stat-lg-size); line-height: var(--ds-stat-lg-lh);
+  letter-spacing: var(--ds-stat-lg-ls); color: var(--accent-lift); font-variant-numeric: tabular-nums;
+}
+.csl__kpi span{ font-size: var(--ds-body-sm-size); line-height: var(--ds-body-sm-lh); color: var(--ink-2); }
+.csl__kpi .case__tags{ justify-content: flex-end; margin-top: var(--space-2xs); }
+.csl__text{ display: grid; align-content: center; gap: var(--space-md); }
+.csl__phrase{
+  font-family: var(--f-display); font-variation-settings: var(--ds-display-lg-variation);
+  font-size: var(--ds-display-lg-size); line-height: var(--ds-display-lg-lh);
+  letter-spacing: var(--ds-display-lg-ls); max-width: 20ch;
+}
+.csl__phrase span{ color: var(--ink-2); }
+.csl__sub{ color: var(--ink-2); max-width: 46ch; }
+.csl__sub em{ font-style: normal; color: var(--accent-lift); }
+.csl__foot{ display: grid; gap: var(--space-sm); justify-items: start; }
+@media (max-width: 1080px){
+  .csl{ grid-template-columns: 1fr; }
+  .csl__text{ align-content: start; }
+}
+@media (max-width: 620px){
+  .csl__mosaic{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .csl__img, .csl__kpi{ grid-area: auto !important; }
+  .csl__kpi{ text-align: left; align-content: center; }
+  .csl__kpi .case__tags{ justify-content: flex-start; }
+}
+
+/* ---------- sub-bar (a second header inside one section) ---------- */
+.subbar{
+  padding-top: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-top: 1px solid var(--rule);
+}
+.subbar__row{
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+  gap: .5rem 1.5rem;
+}
+.subbar__h{
+  font-family: var(--f-display); font-variation-settings: var(--ds-display-sm-variation);
+  font-size: var(--ds-display-sm-size);
+  line-height: var(--ds-display-sm-lh); letter-spacing: var(--ds-display-sm-ls);
+}
+.subbar__n{ margin-top: var(--space-2xs); font-size: var(--ds-body-sm-size); line-height: var(--ds-body-sm-lh); color: var(--ink-2); max-width: 52ch; }
+
+/* ---------- track record ---------- */
+.trec{ border-top: 1px solid var(--rule-strong); }
+.trow{
+  display: grid; gap: .3rem 1.5rem; padding-block: 1rem; border-bottom: 1px solid var(--rule);
+  font-family: var(--f-data); font-size: var(--ds-mono-ui-size); letter-spacing: .02em;
+}
+@media (min-width: 760px){ .trow{ grid-template-columns: 9rem minmax(0, 1.05fr) minmax(0, 1.25fr); align-items: baseline; } }
+.trow__y{ color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.trow__c{ color: var(--ink); }
+.trow__r{ color: var(--ink-2); }
+
+/* ---------- ai ---------- */
+.ai{ display: grid; gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+@media (min-width: 900px){ .ai{ grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.ai__col{ background: var(--bg); padding: clamp(1.5rem, 2.8vw, 2.15rem); }
+.ai__col h3{
+  font-family: var(--f-display); font-variation-settings: var(--ds-display-xs-variation);
+  font-size: var(--ds-display-xs-size); line-height: var(--ds-display-xs-lh); letter-spacing: var(--ds-display-xs-ls);
+  padding-bottom: var(--space-xs); border-bottom: 1px solid var(--rule); margin-bottom: var(--space-xs);
+}
+.ai__col li{
+  display: grid; grid-template-columns: 1.8rem minmax(0, 1fr); gap: .6rem;
+  padding-block: .75rem; border-bottom: 1px solid var(--rule);
+  font-size: var(--ds-body-sm-size); line-height: var(--ds-body-sm-lh); color: var(--ink-2);
+}
+.ai__col li:last-child{ border-bottom: 0; }
+.ai__col li b{
+  font-family: var(--f-data); font-size: var(--ds-mono-micro-size); font-weight: 400; letter-spacing: var(--ds-mono-micro-ls);
+  color: var(--ink-3); padding-top: .35em; font-variant-numeric: tabular-nums;
+}
+.ai__col strong{ color: var(--ink); font-weight: 600; }
+.ai__close{
+  margin-top: var(--space-md);
+  font-family: var(--f-display); font-variation-settings: var(--ds-display-md-variation);
+  font-size: var(--ds-display-md-size);
+  line-height: var(--ds-display-md-lh); letter-spacing: var(--ds-display-md-ls); max-width: 46ch;
+}
+
+/* ---------- capabilities ---------- */
+.caps{ display: grid; gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+@media (min-width: 700px){ .caps{ grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1180px){ .caps{ grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.cap{ background: var(--bg); padding: clamp(1.4rem, 2.4vw, 1.85rem); }
+.cap h3{
+  font-family: var(--f-display); font-variation-settings: var(--ds-display-xs-variation);
+  font-size: var(--ds-display-xs-size); line-height: var(--ds-display-xs-lh); letter-spacing: var(--ds-display-xs-ls);
+  padding-bottom: var(--space-xs); border-bottom: 1px solid var(--rule); margin-bottom: var(--space-xs);
+}
+.cap li{ font-family: var(--f-data); font-size: var(--ds-mono-ui-size); line-height: 1.6; letter-spacing: .02em; color: var(--ink-2); padding-block: .35rem; }
+
+/* ---------- contact ---------- */
+.contact__h{
+  font-family: var(--f-display); font-variation-settings: var(--ds-display-xl-variation);
+  font-size: var(--ds-display-xl-size);
+  line-height: var(--ds-display-xl-lh); letter-spacing: var(--ds-display-xl-ls); text-transform: uppercase; max-width: 20ch;
+}
+.contact__sub{ margin-top: var(--space-sm); max-width: 72ch; font-size: var(--ds-body-size); color: var(--ink-2); }
+.links{ margin-top: var(--space-xl); display: grid; gap: 0; }
+.lrow{
+  display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
+  padding: clamp(1rem, 2vw, 1.35rem) 0; border-top: 1px solid var(--rule);
+  text-decoration: none; transition: border-color .25s var(--ease);
+}
+.lrow:hover{ border-color: var(--rule-strong); }
+.lrow__k{ font-family: var(--f-data); font-size: var(--ds-mono-label-size); letter-spacing: var(--ds-mono-label-ls); text-transform: uppercase; color: var(--ink-3); flex: none; }
+.lrow__v{
+  font-family: var(--f-data); font-size: clamp(.86rem, .82rem + .2vw, 1rem);
+  letter-spacing: .01em; text-align: right; overflow-wrap: anywhere;
+  transition: color .2s var(--ease);
+}
+.lrow:hover .lrow__v{ color: var(--accent-lift); }
+
+/* ---------- comparison banner (this preview page only; not part of the design system) ---------- */
+.previewbar{
+  position: sticky; top: 0; z-index: 50;
+  background: var(--accent); color: #fff;
+  font-family: var(--f-data); font-size: .78rem; letter-spacing: .04em;
+  text-align: center; padding: .55rem 1rem;
+}
+.previewbar a{ color: #fff; text-decoration: underline; text-underline-offset: .15em; }
+</style>
+</head>
+<body>
+
+<div class="previewbar">Design-practice preview — same content and color palette as the live homepage, rebuilt for legibility and structure. <a href="index.html">View live homepage</a></div>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a class="nav__mark" href="#top">SK <span>Serhii Kovalchuk</span></a>
+    <div class="nav__links">
+      <a href="work/cases.html">Cases</a>
+      <a href="#ai" class="nav__hide">AI in my process</a>
+      <a href="#capabilities" class="nav__hide">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+  <div class="nav__progress" id="progress"></div>
+</nav>
+
+<main id="main">
+
+  <!-- ===== OPENING ===== -->
+  <header id="top">
+    <div class="wrap hero">
+      <ul class="hero__meta">
+        <li><span class="hero__dot" aria-hidden="true"></span><span class="mono">Open to work — remote, US &amp; EU</span></li>
+        <li><span class="mono">Senior Product Designer · 10+ yrs</span></li>
+        <li><span class="mono">Rivne, Ukraine · EET</span></li>
+      </ul>
+
+      <h1 class="hero__name"><span>Serhii</span><span>Kovalchuk<i>.</i></span></h1>
+
+      <div class="hero__split">
+        <p class="hero__lede">I design regulated, data-heavy software — the interfaces where <b>a wrong click is expensive</b>.</p>
+        <div class="hero__aside">
+          <p>Pharmacovigilance dashboards. Identity verification. Boarding systems thousands of people pass through in a single morning. Most of the work is removal: steps, ambiguity, screens that shouldn&rsquo;t exist — then writing the rules down so the next team doesn&rsquo;t put them back.</p>
+          <div class="hero__cta">
+            <a class="btn btn--solid" href="#work">Experience</a>
+            <a class="btn btn--ghost" href="mailto:sergeikovalchuck@gmail.com">Email</a>
+            <a class="btn btn--ghost" href="https://www.linkedin.com/in/sergii-kovalchuck-014049168/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- proof strip: the four numbers, before/after and reason merged in -->
+    <div class="proof">
+      <div class="pcell reveal">
+        <span class="pcell__d">−80%</span>
+        <span class="pcell__t">Manual report data entry</span>
+        <p class="pcell__ba"><s>100% manual</s><em>&rarr;</em><b>~20% reviewed</b></p>
+        <p class="pcell__n">AI reads scanned lab results and auto-fills report fields; low-confidence entries route to a specialist, every value traceable to its source.</p>
+        <span class="pcell__w">RxLogix · 2025 · <span title="Estimated from the observed recognition-confidence distribution, not a directly measured outcome.">Est.</span></span>
+      </div>
+      <div class="pcell reveal">
+        <span class="pcell__d">−58%</span>
+        <span class="pcell__t">Clinical workflow steps</span>
+        <p class="pcell__ba"><s>12 steps</s><em>&rarr;</em><b>5 steps</b></p>
+        <p class="pcell__n">Seven of the twelve steps existed because of legacy system logic, not clinical or regulatory need. Compliance mandated five.</p>
+        <span class="pcell__w">RxLogix · 2025</span>
+      </div>
+      <div class="pcell reveal">
+        <span class="pcell__d">−50%</span>
+        <span class="pcell__t">Passenger boarding time</span>
+        <p class="pcell__ba"><s>2 min 40 s</s><em>&rarr;</em><b>1 min 20 s</b></p>
+        <p class="pcell__n">Redesigned the crew tablet workflow used to check passengers through boarding — separate from the terminal's wayfinding displays and the passenger ordering app.</p>
+        <span class="pcell__w">Carnival · 2023</span>
+      </div>
+      <div class="pcell reveal">
+        <span class="pcell__d">−43%</span>
+        <span class="pcell__t">Restaurant ordering steps</span>
+        <p class="pcell__ba"><s>7 steps</s><em>&rarr;</em><b>4 steps</b></p>
+        <p class="pcell__n">Restructured the ordering flow and added a persistent back action, cutting the steps needed to place an order from seven to four.</p>
+        <span class="pcell__w">Carnival · 2023</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== 01 WORK ===== -->
+  <section class="sec" id="work">
+    <div class="sec__bar"><div class="sec__bar-in"><h2>01 · Experience</h2><span>2012 — present</span></div></div>
+    <div class="wrap sec__body">
+      <p class="sec__lead">The last three roles, in detail — and the ten years of agency work that <em>built the method</em>.</p>
+
+      <article class="case reveal">
+        <div class="case__head">
+          <h3 class="case__org">RxLogix</h3>
+          <span class="case__idx">01 / 03</span>
+        </div>
+        <div class="case__grid">
+          <div>
+            <p class="case__desc">Clinical workflows and data dashboards for teams who can&rsquo;t afford a wrong click. Defining interaction logic with medical staff before design, and documenting edge cases so engineering doesn&rsquo;t have to guess.</p>
+            <ul class="case__tags">
+              <li>Data dashboards</li>
+              <li>Workflow UI</li>
+              <li>Spec &amp; edge cases</li>
+              <li>Design system audit</li>
+              <li>AI-assisted recognition</li>
+            </ul>
+            <a class="case__link" href="work/rxlogix.html">Read the case <i aria-hidden="true">&rarr;</i></a>
+          </div>
+          <dl class="spec">
+            <div class="srow"><dt>Years</dt><dd><b>2025 — Present</b> · contract</dd></div>
+            <div class="srow"><dt>Domain</dt><dd>Pharmacovigilance &amp; medical data, B2B SaaS</dd></div>
+            <div class="srow"><dt>Team</dt><dd>US, remote · design + engineering + QA</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="case reveal">
+        <div class="case__head">
+          <h3 class="case__org">NewDay</h3>
+          <span class="case__idx">02 / 03</span>
+        </div>
+        <div class="case__grid">
+          <div>
+            <p class="case__desc">KYC and identity verification flows rebuilt to stop losing people mid-onboarding. Led design end to end — client discovery, wireframes, UI, usability testing — and presented the reasoning at every stage.</p>
+            <ul class="case__tags">
+              <li>KYC &amp; compliance</li>
+              <li>Onboarding funnels</li>
+              <li>Usability testing</li>
+              <li>Client-facing</li>
+            </ul>
+            <a class="case__link" href="work/newday.html">Read the case <i aria-hidden="true">&rarr;</i></a>
+          </div>
+          <dl class="spec">
+            <div class="srow"><dt>Years</dt><dd><b>2023 — 2025</b> · contract</dd></div>
+            <div class="srow"><dt>Domain</dt><dd>Fintech, CRM, web platforms</dd></div>
+            <div class="srow"><dt>Team</dt><dd>Netherlands, remote · agency, multi-client</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="case reveal">
+        <div class="case__head">
+          <h3 class="case__org">Carnival</h3>
+          <span class="case__idx">03 / 03</span>
+        </div>
+        <div class="case__grid">
+          <div>
+            <p class="case__desc">One product family across 65-inch displays, tablets, and phones, for passengers and crew alike. Built adaptive interaction logic — not scaled layouts — and contributed to the shared design system behind it.</p>
+            <ul class="case__tags">
+              <li>Multi-device UX</li>
+              <li>Design system</li>
+              <li>Adaptive logic</li>
+              <li>Multi-team</li>
+            </ul>
+            <a class="case__link" href="work/carnival.html">Read the case <i aria-hidden="true">&rarr;</i></a>
+          </div>
+          <dl class="spec">
+            <div class="srow"><dt>Years</dt><dd><b>2022 — 2023</b> · contract</dd></div>
+            <div class="srow"><dt>Domain</dt><dd>Hospitality ecosystem, multi-device</dd></div>
+            <div class="srow"><dt>Team</dt><dd>US, remote · several product teams</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <div class="subbar">
+        <div class="subbar__row">
+          <h2 class="subbar__h">Ten years before the three above</h2>
+          <p class="mono">2012 — 2022</p>
+        </div>
+        <p class="subbar__n">Agency and freelance work in Ukraine and the UK — the years that turned into the method: research first, then removal, then documentation.</p>
+      </div>
+      <div class="trec">
+        <div class="trow"><span class="trow__y">2021 — 2022</span><span class="trow__c">Freelance, Ukraine</span><span class="trow__r">Product design · mixed web &amp; mobile clients</span></div>
+        <div class="trow"><span class="trow__y">2020 — 2021</span><span class="trow__c">HelloClicks, United Kingdom</span><span class="trow__r">Product / UI Designer</span></div>
+        <div class="trow"><span class="trow__y">2017 — 2020</span><span class="trow__c">The Yard Design, United Kingdom</span><span class="trow__r">UI / UX Designer</span></div>
+        <div class="trow"><span class="trow__y">2012 — 2017</span><span class="trow__c">Silk Design, Ukraine</span><span class="trow__r">Designer → team lead</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 02 CLIENT CASES ===== -->
+  <section class="sec" id="cases">
+    <div class="sec__bar"><div class="sec__bar-in"><span>02 · Case library</span></div></div>
+    <div class="wrap sec__body">
+      <div class="csl">
+        <div class="csl__mosaic">
+          <div class="csl__kpi csl__kpi--a reveal"><b>+40%</b><span>Customer satisfaction<br>Appointlet</span><ul class="case__tags"><li>Scheduling SaaS</li><li>USA</li></ul></div>
+          <div class="csl__img csl__img--1 reveal"><img src="shots/cs-shot-1.webp" alt="Appointlet booking screen" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+          <div class="csl__img csl__img--2 reveal"><img src="shots/cs-shot-2.webp" alt="Appointlet calendar screen" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+          <div class="csl__img csl__img--3 reveal"><img src="shots/cs-shot-3.webp" alt="Appointlet settings screen" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+          <div class="csl__kpi csl__kpi--b reveal"><b>5 wks</b><span>Concept to launch-ready<br>Fizbo</span><ul class="case__tags"><li>FSBO Marketplace</li><li>Nashville, TN</li></ul></div>
+          <div class="csl__img csl__img--4 reveal"><img src="shots/cs-shot-4.webp" alt="Fizbo listing screen" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+          <div class="csl__img csl__img--5 reveal"><img src="shots/cs-shot-5.webp" alt="Fizbo homepage screen" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+        </div>
+        <div class="csl__text reveal">
+          <h2 class="csl__phrase">Work worth building <span>— and worth showing</span></h2>
+          <p class="csl__sub">Client engagements and product bets — regulated enterprise platforms, B2B SaaS, and launch-ready apps.</p>
+          <div class="csl__foot">
+            <p class="csl__sub">Every case here <em>ships a number</em> — retention, satisfaction, or time removed from a workflow.</p>
+            <a class="btn btn--solid" href="work/cases.html">See all cases <i aria-hidden="true">&rarr;</i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 03 AI ===== -->
+  <section class="sec" id="ai">
+    <div class="sec__bar"><div class="sec__bar-in"><h2>03 · AI in my process</h2><span>With it, and for it</span></div></div>
+    <div class="wrap sec__body">
+      <p class="sec__lead">Designing with AI, and for AI that has to be <em>accountable</em> to a compliance review.</p>
+
+      <div class="ai">
+        <div class="ai__col reveal">
+          <h3>Designing with AI</h3>
+          <ul>
+            <li><b>01</b><span><strong>Base research</strong> — AI-assisted synthesis of market, competitor, and user research before a single wireframe exists</span></li>
+            <li><b>02</b><span><strong>IA &amp; navigation</strong> — exploring structural options fast, then validating the one that survives scrutiny</span></li>
+            <li><b>03</b><span><strong>Workflow wireframes</strong> — AI-accelerated iteration, human-decided information hierarchy</span></li>
+            <li><b>04</b><span><strong>FSD documentation</strong> — AI-assisted drafting of the specs engineering actually reads</span></li>
+            <li><b>05</b><span><strong>Feature tests</strong> — AI-supported test case generation before handoff, not after bugs show up</span></li>
+          </ul>
+        </div>
+        <div class="ai__col reveal">
+          <h3>Designing for regulated AI</h3>
+          <ul>
+            <li><b>01</b><span><strong>Confidence-scored automation</strong> — a threshold decides what ships automatically and what a human sees first</span></li>
+            <li><b>02</b><span><strong>Traceable sourcing</strong> — every AI-recognized value links back to its exact source, so a reviewer can verify, not just trust</span></li>
+            <li><b>03</b><span><strong>Audit trails</strong> — surfacing what the system decided and why, in the interface, not buried in a log file</span></li>
+            <li><b>04</b><span><strong>Override paths</strong> — designing the moment a human has to disagree with the model as a first-class interaction</span></li>
+            <li><b>05</b><span><strong>Decision documentation</strong> — making AI reasoning legible enough to survive a compliance review</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="ai__close">AI speeds up the draft. I own what ships.</p>
+    </div>
+  </section>
+
+  <!-- ===== 04 CAPABILITIES ===== -->
+  <section class="sec" id="capabilities">
+    <div class="sec__bar"><div class="sec__bar-in"><h2>04 · Capabilities</h2><span>Hand me any of these</span></div></div>
+    <div class="wrap sec__body">
+      <p class="sec__lead">What I can be handed — research, systems, regulated flows, and the documentation that keeps them alive.</p>
+      <div class="caps">
+        <div class="cap">
+          <h3>Product design</h3>
+          <ul>
+            <li>Discovery &amp; problem framing</li>
+            <li>UX research &amp; synthesis</li>
+            <li>User journeys &amp; flows</li>
+            <li>Wireframes &amp; prototypes</li>
+            <li>Usability testing &amp; iteration</li>
+            <li>Funnel optimisation</li>
+            <li>JTBD · Heuristic evaluation</li>
+          </ul>
+        </div>
+        <div class="cap">
+          <h3>Design systems</h3>
+          <ul>
+            <li>Component libraries</li>
+            <li>Design tokens</li>
+            <li>Interaction patterns</li>
+            <li>Layout grids &amp; spacing</li>
+            <li>Governance</li>
+            <li>Multi-team adoption</li>
+            <li>Documentation</li>
+          </ul>
+        </div>
+        <div class="cap">
+          <h3>Regulated &amp; enterprise</h3>
+          <ul>
+            <li>KYC &amp; identity verification</li>
+            <li>Compliance flows</li>
+            <li>Clinical workflows</li>
+            <li>Data-dense interfaces</li>
+            <li>Screen-adaptive UX</li>
+            <li>Accessibility (WCAG 2.1)</li>
+            <li>Information architecture</li>
+          </ul>
+        </div>
+        <div class="cap">
+          <h3>Working with teams</h3>
+          <ul>
+            <li>Edge-case &amp; handoff docs</li>
+            <li>Design–engineering alignment</li>
+            <li>Client discovery calls</li>
+            <li>Stakeholder workshops</li>
+            <li>Sprint integration · Agile</li>
+            <li>Figma, Dev Mode, FigJam</li>
+            <li>Miro · Jira · Confluence</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 05 CONTACT ===== -->
+  <section class="sec" id="contact">
+    <div class="sec__bar"><div class="sec__bar-in"><span>05 · Get in touch</span><span>sergeikovalchuck@gmail.com</span></div></div>
+    <div class="wrap sec__body">
+      <h2 class="contact__h">Have a hard interface problem?</h2>
+      <p class="contact__sub">Open to senior product design roles and contract work with US and EU teams — remote-only, from Rivne, Ukraine (EET), with 6&ndash;7 hour overlap with US business hours and full-day overlap with EU. My last three roles were contract engagements — the shape of work I&rsquo;m continuing to look for, alongside full-time.</p>
+
+      <div class="links">
+        <a class="lrow" href="mailto:sergeikovalchuck@gmail.com">
+          <span class="lrow__k">Email</span>
+          <span class="lrow__v">sergeikovalchuck@gmail.com</span>
+        </a>
+        <a class="lrow" href="https://www.linkedin.com/in/sergii-kovalchuck-014049168/" target="_blank" rel="noopener">
+          <span class="lrow__k">LinkedIn</span>
+          <span class="lrow__v">in/sergii-kovalchuck</span>
+        </a>
+        <a class="lrow" href="tel:+380984032997">
+          <span class="lrow__k">Phone</span>
+          <span class="lrow__v">+38 098 403 2997</span>
+        </a>
+        <a class="lrow" href="https://telegram.me/serhii_kovalchuck" target="_blank" rel="noopener">
+          <span class="lrow__k">Telegram</span>
+          <span class="lrow__v">@serhii_kovalchuck</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <span>Serhii Kovalchuk — Senior Product Designer</span>
+    <span>Rivne, Ukraine · EET</span>
+    <span>© 2026</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (reduce || !('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-in');
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  }
+
+  var bar = document.getElementById('progress'), raf = null;
+  function tick() {
+    raf = null;
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', function () { if (!raf) raf = requestAnimationFrame(tick); }, { passive: true });
+  tick();
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav__links a'));
+  var targets = links.map(function (a) {
+    var href = a.getAttribute('href');
+    if (!href || href.charAt(0) !== '#') return null;
+    try { return document.querySelector(href); } catch (e) { return null; }
+  });
+  if ('IntersectionObserver' in window) {
+    var nav = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var i = targets.indexOf(e.target);
+        links.forEach(function (a, j) { a.classList.toggle('is-active', i === j); });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    targets.forEach(function (t) { if (t) nav.observe(t); });
+  }
+})();
+</script>
+
+</body>
+</html>
