@@ -49,6 +49,7 @@ body{ padding-top: calc(var(--hud-top) + var(--previewbar-h)); }
   <div class="hud-top__ticker">
     <span class="hud-top__flag"><b>Open</b></span>
     <span class="hud-top__section" id="ticker-section">Top</span>
+    <span class="hud-top__uptime" id="ticker-uptime">UP 00:00</span>
     <span class="hud-top__clock" id="ticker-clock">--:--</span>
   </div>
   <div class="hud-top__progress" id="progress"></div>
@@ -60,8 +61,8 @@ body{ padding-top: calc(var(--hud-top) + var(--previewbar-h)); }
   <section class="scope" id="top">
     <div class="wrap scope__grid">
       <div>
-        <p class="scope__flag"><b>Open to work</b> — remote, US &amp; EU · Senior Product Designer · 10+ yrs · Rivne, Ukraine · EET</p>
         <h1 class="callsign"><span>Serhii</span> <span>Kovalchuk<i>.</i></span></h1>
+        <p class="scope__flag"><b>Open to work</b> — remote, US &amp; EU · Senior Product Designer · 10+ yrs · Rivne, Ukraine · EET</p>
         <p class="scope__lede">I design regulated, data-heavy software — the interfaces where <b>a wrong click is expensive</b>.</p>
         <p class="scope__desc">Pharmacovigilance dashboards. Identity verification. Boarding systems thousands of people pass through in a single morning. Most of the work is removal: steps, ambiguity, screens that shouldn&rsquo;t exist — then writing the rules down so the next team doesn&rsquo;t put them back.</p>
       </div>
@@ -134,7 +135,7 @@ body{ padding-top: calc(var(--hud-top) + var(--previewbar-h)); }
 
   <!-- ===== 01 TRACKED CONTACTS (experience) ===== -->
   <section class="panel" id="work">
-    <div class="panel__id"><div class="panel__id-in"><h2>01 · Experience</h2><span>2012 — present</span></div></div>
+    <div class="panel__id"><div class="panel__id-in"><h2>Experience</h2><span>2012 — present</span></div></div>
     <div class="wrap panel__body">
       <p class="panel__title">The last three roles, in detail — and the ten years of agency work that <em>built the method</em>.</p>
 
@@ -232,7 +233,7 @@ body{ padding-top: calc(var(--hud-top) + var(--previewbar-h)); }
 
   <!-- ===== 02 FRAMES (case library) ===== -->
   <section class="panel" id="cases">
-    <div class="panel__id"><div class="panel__id-in"><span>02 · Case library</span></div></div>
+    <div class="panel__id"><div class="panel__id-in"><span>Case library</span></div></div>
     <div class="wrap panel__body">
       <div class="frames">
         <div class="frames__grid">
@@ -258,7 +259,7 @@ body{ padding-top: calc(var(--hud-top) + var(--previewbar-h)); }
 
   <!-- ===== 03 CHANNELS (AI) ===== -->
   <section class="panel" id="ai">
-    <div class="panel__id"><div class="panel__id-in"><h2>03 · AI in my process</h2><span>With it, and for it</span></div></div>
+    <div class="panel__id"><div class="panel__id-in"><h2>AI in my process</h2><span>With it, and for it</span></div></div>
     <div class="wrap panel__body">
       <p class="panel__title">Designing with AI, and for AI that has to be <em>accountable</em> to a compliance review.</p>
 
@@ -293,7 +294,7 @@ body{ padding-top: calc(var(--hud-top) + var(--previewbar-h)); }
 
   <!-- ===== 04 MODULES (capabilities) ===== -->
   <section class="panel" id="capabilities">
-    <div class="panel__id"><div class="panel__id-in"><h2>04 · Capabilities</h2><span>Hand me any of these</span></div></div>
+    <div class="panel__id"><div class="panel__id-in"><h2>Capabilities</h2><span>Hand me any of these</span></div></div>
     <div class="wrap panel__body">
       <p class="panel__title">What I can be handed — research, systems, regulated flows, and the documentation that keeps them alive.</p>
       <div class="modules">
@@ -355,7 +356,7 @@ body{ padding-top: calc(var(--hud-top) + var(--previewbar-h)); }
 
   <!-- ===== 05 OPEN CHANNEL (contact) ===== -->
   <section class="panel" id="contact">
-    <div class="panel__id"><div class="panel__id-in"><span>05 · Get in touch</span><span>sergeikovalchuck@gmail.com</span></div></div>
+    <div class="panel__id"><div class="panel__id-in"><span>Get in touch</span><span>sergeikovalchuck@gmail.com</span></div></div>
     <div class="wrap panel__body">
       <h2 class="openchan__h">Have a hard interface problem?</h2>
       <p class="openchan__sub">Open to senior product design roles and contract work with US and EU teams — remote-only, from Rivne, Ukraine (EET), with 6&ndash;7 hour overlap with US business hours and full-day overlap with EU. My last three roles were contract engagements — the shape of work I&rsquo;m continuing to look for, alongside full-time.</p>
@@ -468,6 +469,19 @@ body{ padding-top: calc(var(--hud-top) + var(--previewbar-h)); }
     }
   }
   tickClock();
+
+  // session/build-style stamp: real elapsed time on this page, not fabricated data
+  var uptimeEl = document.getElementById('ticker-uptime');
+  var sessionStart = Date.now();
+  function tickUptime() {
+    if (!uptimeEl) return;
+    var s = Math.floor((Date.now() - sessionStart) / 1000);
+    var mm = String(Math.floor(s / 60)).padStart(2, '0');
+    var ss = String(s % 60).padStart(2, '0');
+    uptimeEl.textContent = 'UP ' + mm + ':' + ss;
+  }
+  tickUptime();
+  setInterval(tickUptime, 1000);
   setInterval(tickClock, 30000);
 })();
 </script>

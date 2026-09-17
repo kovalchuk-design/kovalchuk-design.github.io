@@ -100,7 +100,13 @@ img{ display: block; max-width: 100%; height: auto; }
 .hud-corner--tr{ top: 10px; right: 10px; border-top: 1.5px solid; border-right: 1.5px solid; }
 .hud-corner--bl{ bottom: 10px; left: 10px; border-bottom: 1.5px solid; border-left: 1.5px solid; }
 .hud-corner--br{ bottom: 10px; right: 10px; border-bottom: 1.5px solid; border-right: 1.5px solid; }
-@media (max-width: 700px){ .hud-corner{ display: none; } }
+@media (max-width: 700px){
+  .hud-corner{ width: 13px; height: 13px; opacity: .55; }
+  .hud-corner--tl, .hud-corner--tr{ top: 6px; }
+  .hud-corner--bl, .hud-corner--br{ bottom: 6px; }
+  .hud-corner--tl, .hud-corner--bl{ left: 6px; }
+  .hud-corner--tr, .hud-corner--br{ right: 6px; }
+}
 
 .hud-top{
   position: fixed; top: 0; left: 0; right: 0; z-index: 60; height: var(--hud-top);
@@ -146,9 +152,11 @@ img{ display: block; max-width: 100%; height: auto; }
   70%  { box-shadow: 0 0 0 .4rem rgba(124,151,255,0); }
   100% { box-shadow: 0 0 0 0 rgba(124,151,255,0); }
 }
-.hud-top__section{ color: var(--ink-2); min-width: 6.5ch; }
+.hud-top__section{ color: var(--ink-2); min-width: 5ch; }
+.hud-top__uptime{ display: none; }
 .hud-top__clock{ font-variant-numeric: tabular-nums; }
-@media (max-width: 560px){ .hud-top__section{ display: none; } }
+@media (min-width: 480px){ .hud-top__uptime{ display: inline; } }
+@media (max-width: 400px){ .hud-top__flag b{ display: none; } }
 .hud-top__progress{ position: absolute; left: 0; bottom: -1px; height: 2px; width: 0; background: var(--accent); }
 
 .hud-bottom{
@@ -160,6 +168,7 @@ img{ display: block; max-width: 100%; height: auto; }
   border-top: 1px solid var(--rule);
 }
 .channels{ display: flex; gap: .6rem; flex-wrap: wrap; justify-content: center; max-width: var(--maxw); width: 100%; }
+@media (min-width: 700px){ .channels{ justify-content: flex-start; } }
 .channel{
   display: inline-flex; align-items: baseline; gap: .55rem;
   font-family: var(--f-data); font-size: var(--t-micro); letter-spacing: .04em;
@@ -223,6 +232,7 @@ img{ display: block; max-width: 100%; height: auto; }
 .callsign{
   font-family: var(--f-display); font-variation-settings: "wdth" 88, "wght" 720;
   font-size: var(--t-callsign); line-height: .92; letter-spacing: -.04em;
+  margin-bottom: var(--space-sm);
 }
 .callsign i{ font-style: normal; color: var(--accent-lift); }
 
