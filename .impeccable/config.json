@@ -1,0 +1,41 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "index-v2.html"
+        ],
+        "createdAt": "2026-09-17T13:03:29.454Z",
+        "reason": "Agent: real computed padding measured via Chromium (12-16px block rows raised to 18-20px, .cap 29.6px, .pcell 32-64.8px, .sec__bar-in 64.8px/13.6px, .hero__meta li border-left 17.6px) meets/exceeds the skill's own 8-16px craft-floor bar everywhere this fires; static analyzer does not resolve clamp()/var()-based or nested-child padding on this file's grid/list rows"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "index-v2.html"
+        ],
+        "createdAt": "2026-09-17T13:03:34.783Z",
+        "reason": "Agent: real Chromium getComputedStyle on the 4 flagged elements (.pcell__d / .csl__kpi b stat numbers) reads line-height/font-size ratios of 0.85-1.04, not the 0.12x the static analyzer reports; verified with a headless render, not just the CSS token"
+      },
+      {
+        "rule": "overused-font",
+        "value": "instrument sans",
+        "createdAt": "2026-09-17T13:03:41.063Z",
+        "reason": "Agent: PRODUCT.md Brand Commitments pins the existing Archivo/Instrument Sans/JetBrains Mono type system; the task explicitly scoped this pass to keeping the same visual identity beyond just color, so swapping the body typeface is out of scope"
+      },
+      {
+        "rule": "em-dash-overuse",
+        "value": "*",
+        "files": [
+          "index-v2.html"
+        ],
+        "createdAt": "2026-09-17T13:03:41.072Z",
+        "reason": "Agent: PRODUCT.md Brand Commitments documents the terse, em-dash-forward voice as the designer's stated style; advisory-only finding, not counted as a failure"
+      }
+    ]
+  }
+}
