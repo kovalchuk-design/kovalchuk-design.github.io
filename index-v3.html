@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Serhii Kovalchuk — Product Designer for regulated, data-heavy software (v3 deep redesign)</title>
+<meta name="description" content="Senior product designer, 10+ years across fintech, medical, and enterprise software. KYC and compliance flows, clinical workflows, data-heavy dashboards, design systems.">
+<meta name="theme-color" content="#0D0F12">
+<meta name="robots" content="noindex">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%231B3FD8'/%3E%3Crect x='22' y='33' width='56' height='13' rx='2' fill='%23E9EAE5' opacity='.5'/%3E%3Crect x='22' y='54' width='28' height='13' rx='2' fill='%23E9EAE5'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Sans:wght@400..600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site-v3.css">
+
+<style>
+:root{ --previewbar-h: 2.1rem; }
+.previewbar{
+  position: fixed; top: 0; left: 0; right: 0; z-index: 80;
+  background: var(--accent); color: #fff; text-align: center;
+  font-family: var(--f-data); font-size: .74rem; letter-spacing: .03em; padding: .5rem 1rem;
+}
+.previewbar a{ color: #fff; text-decoration: underline; text-underline-offset: .15em; }
+body{ padding-top: calc(var(--hud-top) + var(--previewbar-h)); }
+.hud-top{ top: var(--previewbar-h); }
+</style>
+</head>
+<body>
+
+<div class="previewbar">Deep-redesign preview — same content, facts, and color tokens, new visual world (scope/instrument). <a href="https://kovalchuk-design.github.io/" target="_blank" rel="noopener">View live homepage</a></div>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="hud-corner hud-corner--tl" aria-hidden="true"></div>
+<div class="hud-corner hud-corner--tr" aria-hidden="true"></div>
+<div class="hud-corner hud-corner--bl" aria-hidden="true"></div>
+<div class="hud-corner hud-corner--br" aria-hidden="true"></div>
+
+<header class="hud-top">
+  <a class="hud-top__mark" href="#top">SK <span>Serhii Kovalchuk</span></a>
+  <nav class="hud-top__nav" aria-label="Section">
+    <a href="work/cases.html">Cases</a>
+    <a href="#ai">AI process</a>
+    <a href="#capabilities">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="hud-top__ticker">
+    <span class="hud-top__flag"><b>Open</b></span>
+    <span class="hud-top__section" id="ticker-section">Top</span>
+    <span class="hud-top__clock" id="ticker-clock">--:--</span>
+  </div>
+  <div class="hud-top__progress" id="progress"></div>
+</header>
+
+<main id="main">
+
+  <!-- ===== SCOPE (hero) ===== -->
+  <section class="scope" id="top">
+    <div class="wrap scope__grid">
+      <div>
+        <p class="scope__flag"><b>Open to work</b> — remote, US &amp; EU · Senior Product Designer · 10+ yrs · Rivne, Ukraine · EET</p>
+        <h1 class="callsign"><span>Serhii</span> <span>Kovalchuk<i>.</i></span></h1>
+        <p class="scope__lede">I design regulated, data-heavy software — the interfaces where <b>a wrong click is expensive</b>.</p>
+        <p class="scope__desc">Pharmacovigilance dashboards. Identity verification. Boarding systems thousands of people pass through in a single morning. Most of the work is removal: steps, ambiguity, screens that shouldn&rsquo;t exist — then writing the rules down so the next team doesn&rsquo;t put them back.</p>
+      </div>
+      <div class="scope__ring reveal" aria-hidden="true">
+        <i></i><i></i><i></i><i></i>
+        <div class="scope__crosshair"></div>
+        <div class="scope__sweep"></div>
+        <div class="scope__mark"><b>SK</b><span>Track locked</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== INSTRUMENT CLUSTER (proof) ===== -->
+  <section class="cluster">
+    <div class="cluster__grid">
+      <div class="dial reveal">
+        <svg class="dial__gauge" viewBox="0 0 100 100" role="img" aria-label="80 percent reduction gauge">
+          <circle class="trk" cx="50" cy="50" r="42"></circle>
+          <circle class="val" cx="50" cy="50" r="42" stroke-dasharray="263.9" stroke-dashoffset="52.8"></circle>
+        </svg>
+        <div class="dial__body">
+          <p class="dial__d tnum">−80%</p>
+          <p class="dial__t">Manual report data entry</p>
+          <p class="dial__ba"><s>100% manual</s><b>→ ~20% reviewed</b></p>
+          <p class="dial__n">AI reads scanned lab results and auto-fills report fields; low-confidence entries route to a specialist, every value traceable to its source.</p>
+          <p class="dial__w">RxLogix · 2025 · <span title="Estimated from the observed recognition-confidence distribution, not a directly measured outcome.">Est.</span></p>
+        </div>
+      </div>
+      <div class="dial reveal">
+        <svg class="dial__gauge" viewBox="0 0 100 100" role="img" aria-label="58 percent reduction gauge">
+          <circle class="trk" cx="50" cy="50" r="42"></circle>
+          <circle class="val" cx="50" cy="50" r="42" stroke-dasharray="263.9" stroke-dashoffset="110.8"></circle>
+        </svg>
+        <div class="dial__body">
+          <p class="dial__d tnum">−58%</p>
+          <p class="dial__t">Clinical workflow steps</p>
+          <p class="dial__ba"><s>12 steps</s><b>→ 5 steps</b></p>
+          <p class="dial__n">Seven of the twelve steps existed because of legacy system logic, not clinical or regulatory need. Compliance mandated five.</p>
+          <p class="dial__w">RxLogix · 2025</p>
+        </div>
+      </div>
+      <div class="dial reveal">
+        <svg class="dial__gauge" viewBox="0 0 100 100" role="img" aria-label="50 percent reduction gauge">
+          <circle class="trk" cx="50" cy="50" r="42"></circle>
+          <circle class="val" cx="50" cy="50" r="42" stroke-dasharray="263.9" stroke-dashoffset="131.9"></circle>
+        </svg>
+        <div class="dial__body">
+          <p class="dial__d tnum">−50%</p>
+          <p class="dial__t">Passenger boarding time</p>
+          <p class="dial__ba"><s>2 min 40 s</s><b>→ 1 min 20 s</b></p>
+          <p class="dial__n">Redesigned the crew tablet workflow used to check passengers through boarding — separate from the terminal's wayfinding displays and the passenger ordering app.</p>
+          <p class="dial__w">Carnival · 2023</p>
+        </div>
+      </div>
+      <div class="dial reveal">
+        <svg class="dial__gauge" viewBox="0 0 100 100" role="img" aria-label="43 percent reduction gauge">
+          <circle class="trk" cx="50" cy="50" r="42"></circle>
+          <circle class="val" cx="50" cy="50" r="42" stroke-dasharray="263.9" stroke-dashoffset="150.4"></circle>
+        </svg>
+        <div class="dial__body">
+          <p class="dial__d tnum">−43%</p>
+          <p class="dial__t">Restaurant ordering steps</p>
+          <p class="dial__ba"><s>7 steps</s><b>→ 4 steps</b></p>
+          <p class="dial__n">Restructured the ordering flow and added a persistent back action, cutting the steps needed to place an order from seven to four.</p>
+          <p class="dial__w">Carnival · 2023</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 01 TRACKED CONTACTS (experience) ===== -->
+  <section class="panel" id="work">
+    <div class="panel__id"><div class="panel__id-in"><h2>01 · Experience</h2><span>2012 — present</span></div></div>
+    <div class="wrap panel__body">
+      <p class="panel__title">The last three roles, in detail — and the ten years of agency work that <em>built the method</em>.</p>
+
+      <article class="track reveal">
+        <div class="track__head">
+          <span class="track__id">TRK-01</span>
+          <h3 class="track__org">RxLogix</h3>
+          <span class="track__status track__status--active">Active</span>
+        </div>
+        <div class="track__grid">
+          <div>
+            <p class="track__desc">Clinical workflows and data dashboards for teams who can&rsquo;t afford a wrong click. Defining interaction logic with medical staff before design, and documenting edge cases so engineering doesn&rsquo;t have to guess.</p>
+            <ul class="track__tags">
+              <li>Data dashboards</li>
+              <li>Workflow UI</li>
+              <li>Spec &amp; edge cases</li>
+              <li>Design system audit</li>
+              <li>AI-assisted recognition</li>
+            </ul>
+            <a class="track__link" href="work/rxlogix.html">Open log <i aria-hidden="true">&rarr;</i></a>
+          </div>
+          <dl class="readout">
+            <div class="rrow"><dt>Years</dt><dd><b>2025 — Present</b> · contract</dd></div>
+            <div class="rrow"><dt>Domain</dt><dd>Pharmacovigilance &amp; medical data, B2B SaaS</dd></div>
+            <div class="rrow"><dt>Team</dt><dd>US, remote · design + engineering + QA</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="track reveal">
+        <div class="track__head">
+          <span class="track__id">TRK-02</span>
+          <h3 class="track__org">NewDay</h3>
+          <span class="track__status track__status--closed">Closed</span>
+        </div>
+        <div class="track__grid">
+          <div>
+            <p class="track__desc">KYC and identity verification flows rebuilt to stop losing people mid-onboarding. Led design end to end — client discovery, wireframes, UI, usability testing — and presented the reasoning at every stage.</p>
+            <ul class="track__tags">
+              <li>KYC &amp; compliance</li>
+              <li>Onboarding funnels</li>
+              <li>Usability testing</li>
+              <li>Client-facing</li>
+            </ul>
+            <a class="track__link" href="work/newday.html">Open log <i aria-hidden="true">&rarr;</i></a>
+          </div>
+          <dl class="readout">
+            <div class="rrow"><dt>Years</dt><dd><b>2023 — 2025</b> · contract</dd></div>
+            <div class="rrow"><dt>Domain</dt><dd>Fintech, CRM, web platforms</dd></div>
+            <div class="rrow"><dt>Team</dt><dd>Netherlands, remote · agency, multi-client</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="track reveal">
+        <div class="track__head">
+          <span class="track__id">TRK-03</span>
+          <h3 class="track__org">Carnival</h3>
+          <span class="track__status track__status--closed">Closed</span>
+        </div>
+        <div class="track__grid">
+          <div>
+            <p class="track__desc">One product family across 65-inch displays, tablets, and phones, for passengers and crew alike. Built adaptive interaction logic — not scaled layouts — and contributed to the shared design system behind it.</p>
+            <ul class="track__tags">
+              <li>Multi-device UX</li>
+              <li>Design system</li>
+              <li>Adaptive logic</li>
+              <li>Multi-team</li>
+            </ul>
+            <a class="track__link" href="work/carnival.html">Open log <i aria-hidden="true">&rarr;</i></a>
+          </div>
+          <dl class="readout">
+            <div class="rrow"><dt>Years</dt><dd><b>2022 — 2023</b> · contract</dd></div>
+            <div class="rrow"><dt>Domain</dt><dd>Hospitality ecosystem, multi-device</dd></div>
+            <div class="rrow"><dt>Team</dt><dd>US, remote · several product teams</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <div class="logbar">
+        <div class="logbar__row">
+          <h2 class="logbar__h">Ten years before the three above</h2>
+          <p class="mono" style="font-size:.8rem;letter-spacing:.08em;color:var(--ink-3);text-transform:uppercase">2012 — 2022</p>
+        </div>
+        <p class="logbar__n">Agency and freelance work in Ukraine and the UK — the years that turned into the method: research first, then removal, then documentation.</p>
+      </div>
+      <div class="hist">
+        <div class="hrow"><span class="hrow__y">2021 — 2022</span><span class="hrow__c">Freelance, Ukraine</span><span class="hrow__r">Product design · mixed web &amp; mobile clients</span></div>
+        <div class="hrow"><span class="hrow__y">2020 — 2021</span><span class="hrow__c">HelloClicks, United Kingdom</span><span class="hrow__r">Product / UI Designer</span></div>
+        <div class="hrow"><span class="hrow__y">2017 — 2020</span><span class="hrow__c">The Yard Design, United Kingdom</span><span class="hrow__r">UI / UX Designer</span></div>
+        <div class="hrow"><span class="hrow__y">2012 — 2017</span><span class="hrow__c">Silk Design, Ukraine</span><span class="hrow__r">Designer → team lead</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 02 FRAMES (case library) ===== -->
+  <section class="panel" id="cases">
+    <div class="panel__id"><div class="panel__id-in"><span>02 · Case library</span></div></div>
+    <div class="wrap panel__body">
+      <div class="frames">
+        <div class="frames__grid">
+          <div class="frames__kpi reveal"><b>+40%</b><span>Customer satisfaction<br>Appointlet</span><ul class="track__tags"><li>Scheduling SaaS</li><li>USA</li></ul></div>
+          <div class="frame reveal"><img src="shots/cs-shot-1.webp" alt="Appointlet booking screen"><span class="frame__tag">FRM-01</span></div>
+          <div class="frame reveal"><img src="shots/cs-shot-2.webp" alt="Appointlet calendar screen"><span class="frame__tag">FRM-02</span></div>
+          <div class="frame reveal"><img src="shots/cs-shot-3.webp" alt="Appointlet settings screen"><span class="frame__tag">FRM-03</span></div>
+          <div class="frames__kpi reveal"><b>5 wks</b><span>Concept to launch-ready<br>Fizbo</span><ul class="track__tags"><li>FSBO Marketplace</li><li>Nashville, TN</li></ul></div>
+          <div class="frame reveal"><img src="shots/cs-shot-4.webp" alt="Fizbo listing screen"><span class="frame__tag">FRM-04</span></div>
+          <div class="frame reveal"><img src="shots/cs-shot-5.webp" alt="Fizbo homepage screen"><span class="frame__tag">FRM-05</span></div>
+        </div>
+        <div class="frames__text reveal">
+          <h2 class="frames__phrase">Work worth building <span>— and worth showing</span></h2>
+          <p class="frames__sub">Client engagements and product bets — regulated enterprise platforms, B2B SaaS, and launch-ready apps.</p>
+          <div class="frames__foot">
+            <p class="frames__sub">Every case here <em>ships a number</em> — retention, satisfaction, or time removed from a workflow.</p>
+            <a class="channel channel--primary" href="work/cases.html">See all cases <i aria-hidden="true">&rarr;</i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 03 CHANNELS (AI) ===== -->
+  <section class="panel" id="ai">
+    <div class="panel__id"><div class="panel__id-in"><h2>03 · AI in my process</h2><span>With it, and for it</span></div></div>
+    <div class="wrap panel__body">
+      <p class="panel__title">Designing with AI, and for AI that has to be <em>accountable</em> to a compliance review.</p>
+
+      <div class="channels-grid">
+        <div class="chan-col reveal">
+          <p class="chan-col__id">CH-1</p>
+          <h3>Designing with AI</h3>
+          <ul>
+            <li><b>01</b><span><strong>Base research</strong> — AI-assisted synthesis of market, competitor, and user research before a single wireframe exists</span></li>
+            <li><b>02</b><span><strong>IA &amp; navigation</strong> — exploring structural options fast, then validating the one that survives scrutiny</span></li>
+            <li><b>03</b><span><strong>Workflow wireframes</strong> — AI-accelerated iteration, human-decided information hierarchy</span></li>
+            <li><b>04</b><span><strong>FSD documentation</strong> — AI-assisted drafting of the specs engineering actually reads</span></li>
+            <li><b>05</b><span><strong>Feature tests</strong> — AI-supported test case generation before handoff, not after bugs show up</span></li>
+          </ul>
+        </div>
+        <div class="chan-col reveal">
+          <p class="chan-col__id">CH-2</p>
+          <h3>Designing for regulated AI</h3>
+          <ul>
+            <li><b>01</b><span><strong>Confidence-scored automation</strong> — a threshold decides what ships automatically and what a human sees first</span></li>
+            <li><b>02</b><span><strong>Traceable sourcing</strong> — every AI-recognized value links back to its exact source, so a reviewer can verify, not just trust</span></li>
+            <li><b>03</b><span><strong>Audit trails</strong> — surfacing what the system decided and why, in the interface, not buried in a log file</span></li>
+            <li><b>04</b><span><strong>Override paths</strong> — designing the moment a human has to disagree with the model as a first-class interaction</span></li>
+            <li><b>05</b><span><strong>Decision documentation</strong> — making AI reasoning legible enough to survive a compliance review</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="channels-close">AI speeds up the draft. I own what ships.</p>
+    </div>
+  </section>
+
+  <!-- ===== 04 MODULES (capabilities) ===== -->
+  <section class="panel" id="capabilities">
+    <div class="panel__id"><div class="panel__id-in"><h2>04 · Capabilities</h2><span>Hand me any of these</span></div></div>
+    <div class="wrap panel__body">
+      <p class="panel__title">What I can be handed — research, systems, regulated flows, and the documentation that keeps them alive.</p>
+      <div class="modules">
+        <div class="module">
+          <p class="module__id">MOD.01</p>
+          <h3>Product design</h3>
+          <ul>
+            <li>Discovery &amp; problem framing</li>
+            <li>UX research &amp; synthesis</li>
+            <li>User journeys &amp; flows</li>
+            <li>Wireframes &amp; prototypes</li>
+            <li>Usability testing &amp; iteration</li>
+            <li>Funnel optimisation</li>
+            <li>JTBD · Heuristic evaluation</li>
+          </ul>
+        </div>
+        <div class="module">
+          <p class="module__id">MOD.02</p>
+          <h3>Design systems</h3>
+          <ul>
+            <li>Component libraries</li>
+            <li>Design tokens</li>
+            <li>Interaction patterns</li>
+            <li>Layout grids &amp; spacing</li>
+            <li>Governance</li>
+            <li>Multi-team adoption</li>
+            <li>Documentation</li>
+          </ul>
+        </div>
+        <div class="module">
+          <p class="module__id">MOD.03</p>
+          <h3>Regulated &amp; enterprise</h3>
+          <ul>
+            <li>KYC &amp; identity verification</li>
+            <li>Compliance flows</li>
+            <li>Clinical workflows</li>
+            <li>Data-dense interfaces</li>
+            <li>Screen-adaptive UX</li>
+            <li>Accessibility (WCAG 2.1)</li>
+            <li>Information architecture</li>
+          </ul>
+        </div>
+        <div class="module">
+          <p class="module__id">MOD.04</p>
+          <h3>Working with teams</h3>
+          <ul>
+            <li>Edge-case &amp; handoff docs</li>
+            <li>Design–engineering alignment</li>
+            <li>Client discovery calls</li>
+            <li>Stakeholder workshops</li>
+            <li>Sprint integration · Agile</li>
+            <li>Figma, Dev Mode, FigJam</li>
+            <li>Miro · Jira · Confluence</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 05 OPEN CHANNEL (contact) ===== -->
+  <section class="panel" id="contact">
+    <div class="panel__id"><div class="panel__id-in"><span>05 · Get in touch</span><span>sergeikovalchuck@gmail.com</span></div></div>
+    <div class="wrap panel__body">
+      <h2 class="openchan__h">Have a hard interface problem?</h2>
+      <p class="openchan__sub">Open to senior product design roles and contract work with US and EU teams — remote-only, from Rivne, Ukraine (EET), with 6&ndash;7 hour overlap with US business hours and full-day overlap with EU. My last three roles were contract engagements — the shape of work I&rsquo;m continuing to look for, alongside full-time.</p>
+
+      <div class="freqs">
+        <a class="frow" href="mailto:sergeikovalchuck@gmail.com">
+          <span class="frow__k">Email</span>
+          <span class="frow__v">sergeikovalchuck@gmail.com</span>
+        </a>
+        <a class="frow" href="https://www.linkedin.com/in/sergii-kovalchuck-014049168/" target="_blank" rel="noopener">
+          <span class="frow__k">LinkedIn</span>
+          <span class="frow__v">in/sergii-kovalchuck</span>
+        </a>
+        <a class="frow" href="tel:+380984032997">
+          <span class="frow__k">Phone</span>
+          <span class="frow__v">+38 098 403 2997</span>
+        </a>
+        <a class="frow" href="https://telegram.me/serhii_kovalchuck" target="_blank" rel="noopener">
+          <span class="frow__k">Telegram</span>
+          <span class="frow__v">@serhii_kovalchuck</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__inner">
+    <span>Serhii Kovalchuk — Senior Product Designer</span>
+    <span>Rivne, Ukraine · EET</span>
+    <span>© 2026</span>
+  </div>
+</footer>
+
+<div class="hud-bottom">
+  <div class="channels">
+    <a class="channel channel--primary" href="#work"><b>080.5</b> Experience</a>
+    <a class="channel" href="mailto:sergeikovalchuck@gmail.com"><b>121.5</b> Email</a>
+    <a class="channel" href="https://www.linkedin.com/in/sergii-kovalchuck-014049168/" target="_blank" rel="noopener"><b>118.1</b> LinkedIn</a>
+  </div>
+</div>
+
+<script>
+(function () {
+  // Preview-only: size the fixed HUD offset to the banner's real
+  // (possibly multi-line) height instead of a guessed constant.
+  var bar = document.querySelector('.previewbar');
+  function sizePreviewBar() {
+    if (!bar) return;
+    document.documentElement.style.setProperty('--previewbar-h', bar.offsetHeight + 'px');
+  }
+  sizePreviewBar();
+  window.addEventListener('resize', sizePreviewBar);
+})();
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (reduce || !('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-in');
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  }
+
+  var bar = document.getElementById('progress'), raf = null;
+  function tick() {
+    raf = null;
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', function () { if (!raf) raf = requestAnimationFrame(tick); }, { passive: true });
+  tick();
+
+  // section ticker + nav active state
+  var sectionNames = { top: 'Top', work: 'Experience', cases: 'Cases', ai: 'AI process', capabilities: 'Skills', contact: 'Contact' };
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.hud-top__nav a'));
+  var tickerEl = document.getElementById('ticker-section');
+  var sections = ['top', 'work', 'cases', 'ai', 'capabilities', 'contact'].map(function (id) { return document.getElementById(id); }).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    var sio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var id = e.target.id;
+        if (tickerEl) tickerEl.textContent = sectionNames[id] || id;
+        navLinks.forEach(function (a) {
+          var href = a.getAttribute('href');
+          a.classList.toggle('is-active', href === '#' + id);
+        });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    sections.forEach(function (s) { sio.observe(s); });
+  }
+
+  // live EET clock (UTC+2, or UTC+3 during EU DST — approximate with Intl when available)
+  var clockEl = document.getElementById('ticker-clock');
+  function tickClock() {
+    if (!clockEl) return;
+    try {
+      var fmt = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Kyiv', hour: '2-digit', minute: '2-digit', hour12: false });
+      clockEl.textContent = fmt.format(new Date()) + ' EET';
+    } catch (e) {
+      clockEl.textContent = '';
+    }
+  }
+  tickClock();
+  setInterval(tickClock, 30000);
+})();
+</script>
+
+</body>
+</html>

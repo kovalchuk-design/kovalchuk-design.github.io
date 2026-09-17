@@ -35,6 +35,33 @@
         ],
         "createdAt": "2026-09-17T13:03:41.072Z",
         "reason": "Agent: PRODUCT.md Brand Commitments documents the terse, em-dash-forward voice as the designer's stated style; advisory-only finding, not counted as a failure"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "index-v3.html"
+        ],
+        "createdAt": "2026-09-17T13:31:33.291Z",
+        "reason": "Agent: real computed padding measured via Chromium confirms every flagged container is not cramped — .frame is a full-bleed image tile (0 padding by design, text lives in an already-padded overlay tag), .dial/.module/.chan-col/.panel__id-in carry 30-56px via clamp()-based padding the static analyzer does not resolve, .readout/.hist/.cluster/.channels-grid/.modules are wrapper grids whose real padding lives on their child rows, and .rrow/.hrow measure 16.8-17.6px fixed padding-block (same anomaly already evidenced and documented on index-v2.html, unaffected by further raising the value)"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "index-v3.html"
+        ],
+        "createdAt": "2026-09-17T13:31:33.300Z",
+        "reason": "Agent: full-DOM getComputedStyle scan of every text node on the page finds no element under a 1.3x line-height/font-size ratio except intentional single/short-line display headlines (callsign, track__org, frames__phrase at ~1.05, by design) and channels-close at 1.30; the static analyzer's 1.24x/1.28x readings do not correspond to any real element (same class of false positive already evidenced on index-v2.html)"
+      },
+      {
+        "rule": "em-dash-overuse",
+        "value": "*",
+        "files": [
+          "index-v3.html"
+        ],
+        "createdAt": "2026-09-17T13:31:33.310Z",
+        "reason": "Agent: PRODUCT.md Brand Commitments documents the em-dash-forward voice as the designer's stated style; advisory-only finding, not counted as a failure"
       }
     ]
   }
